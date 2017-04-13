@@ -48,6 +48,15 @@ table {
   border-spacing: 0;
 }
 
+table, th, tr, td {
+  border: 1px solid black;
+}
+
+th {
+  padding: 7px;
+  margin: 7px;
+}
+
 *, *:before, *:after {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
