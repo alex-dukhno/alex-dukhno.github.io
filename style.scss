@@ -220,6 +220,10 @@ nav {
 .posts > .post {
   padding-bottom: 2em;
   border-bottom: 1px solid $lightGray;
+
+  ul.post-tag li {
+    display: inline;
+  }
 }
 
 .posts > .post:last-child {
@@ -244,10 +248,10 @@ nav {
     text-transform: uppercase;
     font-size: 15px;
   }
-}
 
-ul.post-tag li {
-  display: inline;
+  ul.post-tag li {
+    display: inline;
+  }
 }
 
 .wrapper-footer {
