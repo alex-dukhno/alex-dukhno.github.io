@@ -23,6 +23,9 @@ kramdown:
 sass:
   style: :expanded
 
+gems:
+  - jemoji
+
 # Exclude these files from your production _site
 exclude:
   - Gemfile
