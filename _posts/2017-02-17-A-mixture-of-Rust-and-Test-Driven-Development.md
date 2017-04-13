@@ -1,6 +1,7 @@
 ---
 layout: post
 title: A mixture of Rust and Test Driven Development
+tags: rust tdd
 ---
 
 ## Disclaimer

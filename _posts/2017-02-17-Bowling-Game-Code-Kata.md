@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Bowling Game Code Kata. TL;DR
+tags: rust tdd
 ---
 
 By doing this exercise we implement functionality to count a score of a [pin bowling game](https://en.wikipedia.org/wiki/Bowling)

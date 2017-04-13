@@ -1,1 +1,31 @@
-theme: jekyll-theme-slate
+name: Alex Dukhno
+
+description: Software Engineer
+
+avatar: https://avatars2.githubusercontent.com/u/5074607?v=3&s=460
+
+footer-links:
+  github: Alex-Diez
+  twitter: AlexanderDukhno
+
+baseurl: ""
+
+permalink: /:title/
+
+version: v1.2.0
+
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    css_class: 'highlight'
+
+sass:
+  style: :expanded
+
+# Exclude these files from your production _site
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - LICENSE
+  - README.md

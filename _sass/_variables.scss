@@ -1,0 +1,20 @@
+
+$blue: #4183C4;
+
+$black: #000;
+$darkerGray: #222;
+$darkGray: #333;
+$red: #E00;
+$gray: #666;
+$lightGray: #eee;
+$white: #fff;
+
+$helvetica: Helvetica, Arial, sans-serif;
+$helveticaNeue: "Helvetica Neue", Helvetica, Arial, sans-serif;
+$georgia: Georgia, serif;
+
+@mixin mobile {
+  @media screen and (max-width: 640px) {
+    @content;
+  }
+}
