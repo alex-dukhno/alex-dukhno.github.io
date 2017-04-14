@@ -183,3 +183,7 @@ The bytecode of `main` method is interesting. `new` operation allocates memory f
 >| Stack |
 >|:-:|
 >| |
+
+# Wrap it up
+
+In this article, we see three bytecode instructions `new`, `dup` and `invokespecial`. `new` allocates memory for an object. Thus, it means that when you write `new MyObject()` `JVM` needs to do a lot of work. It is not an atomic operation, `MyObject` constructor is not allocating memory, it only initializes fields. `dup` duplicates head of `operand stack`; I will cover this instruction in future posts. And `invokespecial` instruction means that `JVM` needs to invoke a method of the concrete class and don't need to look up the method in the `virtual table`.
