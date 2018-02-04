@@ -13,6 +13,9 @@ layout: default
                 {% endfor %}
             </ul>
         </div>
+        <div class="date">
+            {{ post.date | date: "%B %e, %Y" }}
+        </div>
         <div class="entry">
             {{ post.excerpt }}
         </div>
