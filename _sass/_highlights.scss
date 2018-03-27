@@ -16,6 +16,13 @@ code {
   font-size: 15px;
 }
 
+.highlight .highlight {
+   border: none;
+   box-shadow: none;
+   margin: 0;
+   padding: 0;
+}
+
 .highlight .hll { background-color: #ffffcc }
 .highlight .c { color: #999988; font-style: italic } /* Comment */
 .highlight .err { color: #a61717; background-color: #e3d2d2 } /* Error */
