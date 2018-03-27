@@ -13,14 +13,12 @@ footer-links:
 baseurl: ""
 
 permalink: /:title/
-
-version: v1.2.0
+markdown:  kramdown
+version:   v1.2.0
 
 kramdown:
   input: GFM
   syntax_highlighter: rouge
-  syntax_highlighter_opts:
-    css_class: 'highlight'
 
 sass:
   style: :expanded
