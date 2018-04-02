@@ -526,7 +526,8 @@ OK (4 tests)
 
 I constantly rerun tests during my refactoring to make sure that I haven't broken anything. We are ready to remove `@Ignore` annotation check test is failing and make needed changes.
 
-```shJUnit version 4.12
+```sh
+JUnit version 4.12
 ...E..
 Time: 0.2
 There was 1 failure:
