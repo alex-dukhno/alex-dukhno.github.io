@@ -4,7 +4,7 @@ title: Experiments with MxNet and Handwritten Digits recognition
 tags: MxNet python Jupyter-Notebook
 ---
 
-In this Jupyter notebook, I'd like to experiment with 'Hello world' multi-class logistic regression problem - recognition of handwritten digits. I will use [MxNet](https://mxnet.apache.org/) and its [Gluon API](https://mxnet.apache.org/gluon/index.html) to build neural network. The dataset is [MNIST](http://yann.lecun.com/exdb/mnist/) that contains lots handwritten digits. I am going to use different optimizers that provided by MxNet to find out how they influence model training speed and prediction accuracy.
+In this [Jupyter notebook](http://jupyter.org/), I'd like to experiment with 'Hello world' multi-class logistic regression problem - recognition of handwritten digits. I will use [MxNet](https://mxnet.apache.org/) and its [Gluon API](https://mxnet.apache.org/gluon/index.html) to build a neural network. The dataset is [MNIST](http://yann.lecun.com/exdb/mnist/) that contains lots handwritten digits. I am going to use different optimizers that provided by MxNet to find out how they influence model training speed and prediction accuracy.
 
 ### Package import
 
