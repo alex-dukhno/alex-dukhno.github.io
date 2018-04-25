@@ -1,7 +1,7 @@
 ---
 layout: post
 title: There is just no "just" in software development/engineering
-tags: personal-opinion
+tags: [personal-opinion]
 ---
 
 I doubt that when you discuss any `key-value` storage with your colleagues, one of you say "It is just a big hashtable/map." Have you ever work on a project of implementing such thing? Or when discuss `self-balanced tree` algorithm someone says "It just guarantees that lookup operation wouldn't take more than logarithm of tree size operations." Do you know how hard to implement one?

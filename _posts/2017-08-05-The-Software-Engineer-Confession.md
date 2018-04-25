@@ -1,7 +1,7 @@
 ---
 layout: post
 title: The software engineer confession
-tags: personal-opinion
+tags: [personal-opinion]
 ---
 
 Let's imagine a hypothetical software developer who is working on the project that is going to be closed in a month and waiting when a senior manager comes to the room and offer him a new project with all new and shiny technologies. As any new things, it seemed to be excited and neat. However, I am in great haste to assure you that the chances of this scenario are awfully close to the zero in the most optimistic case (in the worst case the chances would be minus infinity).

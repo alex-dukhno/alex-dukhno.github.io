@@ -1,7 +1,7 @@
 ---
 layout: post
 title: From Imperative To Reactive
-tags: Java Reactive TDD
+tags: [Java, Reactive, TDD]
 ---
 
 Many projects have been written in an imperative style. That’s fine when the end-to-end flow of your application is sequential. However, it becomes incredibly complex if you introduce parallel or concurrent programming in your application. Your application must handle many users requests, thus you start making your code parallel and concurrent. Experienced engineers advocate reactive programming as a way to handle this complexity. The reactive style turns into a trend for last few years. But, how can we use the reactive style with our old imperative applications? In this article, I am going to illustrate how you can create a reactive stream from a binary tree.

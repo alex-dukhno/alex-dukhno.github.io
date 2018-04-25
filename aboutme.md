@@ -1,7 +1,6 @@
 ---
 layout: page
-title: About
-permalink: /about/
+title: About me
 ---
 
 Software Engineer with passion to design and low level details.

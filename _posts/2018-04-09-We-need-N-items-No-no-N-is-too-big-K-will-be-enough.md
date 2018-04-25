@@ -1,7 +1,7 @@
 ---
 layout: post
 title: We need N items. No, no, N is too big; K will be enough
-tags: Java algorithms TDD
+tags: [Java, algorithms, TDD]
 ---
 
 [TDD](https://en.wikipedia.org/wiki/Test-driven_development) is a very useful discipline for implementing software. The more you practice it the more you ask where and how you can use it. The question that I was recently asked, by others and myself, is “Can TDD help me to solve algorithmic problems? If yes, then how?”. This article pursues the idea of what I personally do when solving an algorithmic task in TDD cycle.

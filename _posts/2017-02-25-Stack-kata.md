@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Stack kata. TL;DR
-tags: Rust TDD
+tags: [Rust, TDD]
 ---
 
 I look at the tests in two ways. On one hand, they are experiments. If I write a test for my program that use some third-party libraries or frameworks, I expect to see some results. They can be valid or not. These kind of tests are experiments. I write the tests to gain some empirical experience of how things work inside.

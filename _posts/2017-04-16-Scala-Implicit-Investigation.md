@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Scala Implicit investigation
-tags: Scala compilers
+tags: [Scala, compilers]
 ---
 
 I have been doing internal [`Scala`](http://www.scala-lang.org) courses for six weeks. One of task on the third week was to write a function that calculates given factorial recursively with and without tail recursion. Playing with `BigInt` in `Scala` and solving this trivial task I faced some interesting compiler behavior with `implicit conversions`. In this article, I want to dive deeper in how particular home assignment showed me what is `implicit`s in `Scala` and how it influences on my programs.

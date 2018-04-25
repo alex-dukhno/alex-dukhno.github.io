@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Functionally Persistent List In Scala. TL;DR
-tags: Scala data-structures TDD
+tags: [Scala, data-structures, TDD]
 ---
 
 It has been for more than a month that I wrote any technical article in my blog. However, one thought hit me a few weeks ago to write an article about a data structure - [persistent list](https://en.wikipedia.org/wiki/Persistent_data_structure#Linked_lists). Of course approaching test driven development, could not be the other way. I hope it will not be in too functional style, and people who do not think that way will be comfortable with its content. Let's get started.

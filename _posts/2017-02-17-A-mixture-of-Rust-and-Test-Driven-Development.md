@@ -1,7 +1,7 @@
 ---
 layout: post
 title: A mixture of Rust and Test Driven Development
-tags: Rust TDD learning
+tags: [Rust, TDD, learning]
 ---
 
 ## Disclaimer

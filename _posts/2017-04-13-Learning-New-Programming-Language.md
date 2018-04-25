@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Learning new programming language
-tags: learning programming-language
+tags: [learning, programming-language]
 ---
 
 If you are smart, you understand new things fast. When you are wise, you apply your new knowledge on a day to day stuff. If you feel that you know a lot about your daily job, try to read something different but from a related field. The software industry is very broad. There are hundreds of programming languages. Some are popular some are not. However, the engineers and researchers, who are developing them, are trying to solve some particular problems.

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Programming is all about language design
-tags: personal-opinion
+tags: [personal-opinion]
 ---
 
 On my career of software developer, I often heard that a good engineer knows their domain well. The reason is very intuitive, and I did not need an explanation. However, I had many talks with people who disagree with this point, and think that it is not worthy and would never pay you off.
