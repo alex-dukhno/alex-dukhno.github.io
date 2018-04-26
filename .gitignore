@@ -5,3 +5,6 @@ _site
 Gemfile.lock
 .jekyll-metadata
 .DS_Store
+
+.idea/
+.gradle/
