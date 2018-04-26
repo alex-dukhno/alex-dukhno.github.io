@@ -1,6 +1,6 @@
 ---
 layout: post
-title: From Imperative To Reactive
+title: From Imperative To Reactive Part I
 tags: [Java, Reactive, TDD]
 ---
 
@@ -56,11 +56,7 @@ public class ReactiveTreeTest {
 Running the test
 
 ```sh
-JUnit version 4.12
-.
-Time: 0.004
-
-OK (1 test)
+ReactiveTreeTest > nothing PASSED
 ```
 
 Test environment :heavy_check_mark:
@@ -121,16 +117,10 @@ public class PathSum {
 We get expected `NullPointerException` after running the test.
 
 ```sh
-JUnit version 4.12
-.E
-Time: 0.09
-There was 1 failure:
-1) emptyStream_whenGivenEmptyTree(ReactiveTreeTest)
-java.lang.NullPointerException
-//... skipped stack trace
+ReactiveTreeTest > emptyStream_whenGivenEmptyTree FAILED
+    java.lang.NullPointerException at ReactiveTreeTest.java:9
 
-FAILURES!!!
-Tests run: 1,  Failures: 1
+1 test completed, 1 failed
 ```
 
 The fix is very simple to the problem - we need to return empty `Flux`; that we can do with `Flux.empty()`
@@ -145,12 +135,7 @@ public class PathSum {
 ```
 
 ```sh
-JUnit version 4.12
-.
-
-Time: 0.224
-
-OK (1 test)
+ReactiveTreeTest > emptyStream_whenGivenEmptyTree PASSED
 ```
 
  * ~~Reactive stream is empty when tree is empty~~ :heavy_check_mark:
@@ -207,15 +192,13 @@ Test checks that stream sends a `[10]` list before completion. That does not com
 We fixed compile errors but have a failed test.
 
 ```sh
-..E
-Time: 0.183
-There was 1 failure:
-1) treeHasOnlyRoot_andRootValueEqualsToSum(ReactiveTreeTest)
-java.lang.AssertionError: expectation "expectNext([10])" failed (expected: onNext([10]); actual: onComplete())
-//... skipped stack trace
+ReactiveTreeTest > emptyStream_whenGivenEmptyTree PASSED
 
-FAILURES!!!
-Tests run: 2,  Failures: 1
+ReactiveTreeTest > streamHasSingleEvent_whenTreeHasOnlyRoot_andRootValueEqualsToTargetSum FAILED
+    java.lang.AssertionError: expectation "expectNext([10])" failed (expected: onNext([10]); actual: onComplete())
+        //... skipped stack trace
+
+2 tests completed, 1 failed
 ```
 
 Lets fix this with simple `if` statement.
@@ -231,11 +214,9 @@ Lets fix this with simple `if` statement.
 ```
 
 ```sh
-JUnit version 4.12
-..
-Time: 0.164
+ReactiveTreeTest > emptyStream_whenGivenEmptyTree PASSED
 
-OK (2 tests)
+ReactiveTreeTest > streamHasSingleEvent_whenTreeHasOnlyRoot_andRootValueEqualsToTargetSum PASSED
 ```
 
 We need to eliminate data duplication in the test and the code before we move further. The `List.of(10)` is actually `List.of(tree.value)`. Let's change that and we are free to go to the next case.
@@ -261,16 +242,15 @@ Now we need to test that stream will send complete event immediately if a tree h
 ```
 
 ```sh
-JUnit version 4.12
-..E.
-Time: 0.178
-There was 1 failure:
-1) streamIsEmpty_whenTreeHasOnlyRoot_andRootValueNotEqualsToSum(ReactiveTreeTest)
-java.lang.AssertionError: expectation "expectComplete" failed (expected: onComplete(); actual: onNext([20]))
-//...skipped stack trace
+ReactiveTreeTest > streamIsEmpty_whenTreeHasOnlyRoot_andRootValueNotEqualsToTargetSum FAILED
+    java.lang.AssertionError: expectation "expectComplete" failed (expected: onComplete(); actual: onNext([10]))
+        //...skipped stack trace
 
-FAILURES!!!
-Tests run: 3,  Failures: 1
+ReactiveTreeTest > emptyStream_whenGivenEmptyTree PASSED
+
+ReactiveTreeTest > streamHasSingleEvent_whenTreeHasOnlyRoot_andRootValueEqualsToTargetSum PASSED
+
+3 tests completed, 1 failed
 ```
 
 It fails as expected; the solution for that is `if` statement again.
@@ -322,16 +302,17 @@ First, we need add one more constructor to `Tree` class.
 We have a clear message what is missing after running the tests. Our stream is empty because `Tree` root value is not equal to the target `sum`.
 
 ```sh
-JUnit version 4.12
-....E
-Time: 0.194
-There was 1 failure:
-1) streamHasSingleEvent_whenTreeHasRoot_andLeftLeaf_andValuesSumEqualsToTargetSum(ReactiveTreeTest)
-java.lang.AssertionError: expectation "expectNext([3, 4])" failed (expected: onNext([3, 4]); actual: onComplete())
-//...skipped stack trace
+ReactiveTreeTest > streamIsEmpty_whenTreeHasOnlyRoot_andRootValueNotEqualsToTargetSum PASSED
 
-FAILURES!!!
-Tests run: 4,  Failures: 1
+ReactiveTreeTest > emptyStream_whenGivenEmptyTree PASSED
+
+ReactiveTreeTest > streamHasSingleEvent_whenTreeHasOnlyRoot_andRootValueEqualsToTargetSum PASSED
+
+ReactiveTreeTest > streamHasSingleEvent_whenTreeHasRoot_andLeftLeaf_andValuesSumEqualsToTargetSum FAILED
+    java.lang.AssertionError: expectation "expectNext([3, 4])" failed (expected: onNext([3, 4]); actual: onComplete())
+        //...skipped stack trace(ReactiveTreeTest.java:35)
+
+4 tests completed, 1 failed
 ```
 
 A quick fix is to copy paste of two `if` statements. We need to check against `tree.left` node this time.
@@ -380,11 +361,13 @@ What we have to do is to create an empty list if tree node is not null add its v
 That works!
 
 ```sh
-JUnit version 4.12
-....
-Time: 0.169
+ReactiveTreeTest > streamIsEmpty_whenTreeHasOnlyRoot_andRootValueNotEqualsToTargetSum PASSED
 
-OK (4 tests)
+ReactiveTreeTest > emptyStream_whenGivenEmptyTree PASSED
+
+ReactiveTreeTest > streamHasSingleEvent_whenTreeHasOnlyRoot_andRootValueEqualsToTargetSum PASSED
+
+ReactiveTreeTest > streamHasSingleEvent_whenTreeHasRoot_andLeftLeaf_andValuesSumEqualsToTargetSum PASSED
 ```
 
 A sum from a current node to the root node is the sum of items in the list; iteration over a list deserves its separated method.
@@ -453,16 +436,19 @@ First, we make it compile by adding one more constructor to `Tree` class and the
 ```
 
 ```sh
-JUnit version 4.12
-...E..
-Time: 0.198
-There was 1 failure:
-1) streamHasTwoEvents_whenTreeHasRoot_andBothLeaves_onPaths(ReactiveTreeTest)
-java.lang.AssertionError: expectation "expectNext([3, 4])" failed (expected: onNext([3, 4]); actual: onComplete())
-//...skip stack trace
+ReactiveTreeTest > streamIsEmpty_whenTreeHasOnlyRoot_andRootValueNotEqualsToTargetSum PASSED
 
-FAILURES!!!
-Tests run: 5,  Failures: 1
+ReactiveTreeTest > emptyStream_whenGivenEmptyTree PASSED
+
+ReactiveTreeTest > streamHasTwoEvents_whenTreeHasRoot_andBothLeaves_onPaths FAILED
+    java.lang.AssertionError: expectation "expectNext([3, 4])" failed (expected: onNext([3, 4]); actual: onComplete())
+        //...skip stack trace
+
+ReactiveTreeTest > streamHasSingleEvent_whenTreeHasOnlyRoot_andRootValueEqualsToTargetSum PASSED
+
+ReactiveTreeTest > streamHasSingleEvent_whenTreeHasRoot_andLeftLeaf_andValuesSumEqualsToTargetSum PASSED
+
+5 tests completed, 1 failed
 ```
 
 As you may guess the fix is my favorite `if` statement that is a copy pasted of `tree.left` case.
@@ -496,11 +482,15 @@ As you may guess the fix is my favorite `if` statement that is a copy pasted of 
 Wow, that does not work! The `findPaths` function returns right after processing the left leaf. I don't want to dive deep in reactors API in this article; maybe, I will do that in the next one. That's why I am going to do the following: remove my last "fix" that doesn't help, `ignore` the last test with `@org.junit.Ignore` annotation and refactor the code to use a list of lists of integer values from tree nodes.
 
 ```sh
-JUnit version 4.12
-..I..
-Time: 0.161
+ReactiveTreeTest > streamIsEmpty_whenTreeHasOnlyRoot_andRootValueNotEqualsToTargetSum PASSED
 
-OK (4 tests)
+ReactiveTreeTest > emptyStream_whenGivenEmptyTree PASSED
+
+ReactiveTreeTest > streamHasTwoEvents_whenTreeHasRoot_andBothLeaves_onPaths SKIPPED
+
+ReactiveTreeTest > streamHasSingleEvent_whenTreeHasOnlyRoot_andRootValueEqualsToTargetSum PASSED
+
+ReactiveTreeTest > streamHasSingleEvent_whenTreeHasRoot_andLeftLeaf_andValuesSumEqualsToTargetSum PASSED
 ```
 
 ```java
@@ -527,16 +517,19 @@ OK (4 tests)
 I constantly rerun tests during my refactoring to make sure that I haven't broken anything. We are ready to remove `@Ignore` annotation check test is failing and make needed changes.
 
 ```sh
-JUnit version 4.12
-...E..
-Time: 0.2
-There was 1 failure:
-1) streamHasTwoEvents_whenTreeHasRoot_andBothLeaves_onPaths(ReactiveTreeTest)
-java.lang.AssertionError: expectation "expectNext([3, 4])" failed (expected: onNext([3, 4]); actual: onComplete())
-//... skipped stack trace
+ReactiveTreeTest > streamIsEmpty_whenTreeHasOnlyRoot_andRootValueNotEqualsToTargetSum PASSED
 
-FAILURES!!!
-Tests run: 5,  Failures: 1
+ReactiveTreeTest > emptyStream_whenGivenEmptyTree PASSED
+
+ReactiveTreeTest > streamHasTwoEvents_whenTreeHasRoot_andBothLeaves_onPaths FAILED
+    java.lang.AssertionError: expectation "expectNext([3, 4])" failed (expected: onNext([3, 4]); actual: onComplete())
+        //... skipped stack trace
+
+ReactiveTreeTest > streamHasSingleEvent_whenTreeHasOnlyRoot_andRootValueEqualsToTargetSum PASSED
+
+ReactiveTreeTest > streamHasSingleEvent_whenTreeHasRoot_andLeftLeaf_andValuesSumEqualsToTargetSum PASSED
+
+5 tests completed, 1 failed
 ```
 
 Yes, the test fails as before, to fix this we need to create a separated list of integers for left and right leaves. Let's check that it works.
@@ -571,11 +564,15 @@ Yes, the test fails as before, to fix this we need to create a separated list of
 ```
 
 ```sh
-JUnit version 4.12
-.....
-Time: 0.197
+ReactiveTreeTest > streamIsEmpty_whenTreeHasOnlyRoot_andRootValueNotEqualsToTargetSum PASSED
 
-OK (5 tests)
+ReactiveTreeTest > emptyStream_whenGivenEmptyTree PASSED
+
+ReactiveTreeTest > streamHasTwoEvents_whenTreeHasRoot_andBothLeaves_onPaths PASSED
+
+ReactiveTreeTest > streamHasSingleEvent_whenTreeHasOnlyRoot_andRootValueEqualsToTargetSum PASSED
+
+ReactiveTreeTest > streamHasSingleEvent_whenTreeHasRoot_andLeftLeaf_andValuesSumEqualsToTargetSum PASSED
 ```
 
 We are not done yet. We have a code duplication. Let's create a method that recursively invoke itself with the following parameters: a tree node, a list of integers value before the node, a list of list and the target sum; and inside the method we will do all logic.
@@ -601,11 +598,15 @@ We are not done yet. We have a code duplication. Let's create a method that recu
 ```
 
 ```sh
-JUnit version 4.12
-.....
-Time: 0.189
+ReactiveTreeTest > streamIsEmpty_whenTreeHasOnlyRoot_andRootValueNotEqualsToTargetSum PASSED
 
-OK (5 tests)
+ReactiveTreeTest > emptyStream_whenGivenEmptyTree PASSED
+
+ReactiveTreeTest > streamHasTwoEvents_whenTreeHasRoot_andBothLeaves_onPaths PASSED
+
+ReactiveTreeTest > streamHasSingleEvent_whenTreeHasOnlyRoot_andRootValueEqualsToTargetSum PASSED
+
+ReactiveTreeTest > streamHasSingleEvent_whenTreeHasRoot_andLeftLeaf_andValuesSumEqualsToTargetSum PASSED
 ```
 
 We cleaned our code up and ready to move to the next test.
@@ -644,16 +645,21 @@ What if root's value is equal to the target `sum` and it has at least one leaf t
 It fails!
 
 ```sh
-JUnit version 4.12
-......E
-Time: 0.207
-There was 1 failure:
-1) streamHasEventsOf_rootToLeafPaths(ReactiveTreeTest)
-java.lang.AssertionError: expectation "expectNext([1, 0])" failed (expected value: [1, 0]; actual value: [1])
-//... skipped stack trace
+ReactiveTreeTest > streamIsEmpty_whenTreeHasOnlyRoot_andRootValueNotEqualsToTargetSum PASSED
 
-FAILURES!!!
-Tests run: 6,  Failures: 1
+ReactiveTreeTest > emptyStream_whenGivenEmptyTree PASSED
+
+ReactiveTreeTest > streamHasTwoEvents_whenTreeHasRoot_andBothLeaves_onPaths PASSED
+
+ReactiveTreeTest > streamHasSingleEvent_whenTreeHasOnlyRoot_andRootValueEqualsToTargetSum PASSED
+
+ReactiveTreeTest > streamHasSingleEvent_whenTreeHasRoot_andLeftLeaf_andValuesSumEqualsToTargetSum PASSED
+
+ReactiveTreeTest > streamHasEventsOf_rootToLeafPaths FAILED
+    java.lang.AssertionError: expectation "expectNext([1, 0])" failed (expected value: [1, 0]; actual value: [1])
+        //... skipped stack trace
+
+6 tests completed, 1 failed
 ```
 
 All we need to add is a check of condition when a node does not have children.
@@ -674,11 +680,17 @@ All we need to add is a check of condition when a node does not have children.
 ```
 
 ```sh
-JUnit version 4.12
-......
-Time: 0.2
+ReactiveTreeTest > streamIsEmpty_whenTreeHasOnlyRoot_andRootValueNotEqualsToTargetSum PASSED
 
-OK (6 tests)
+ReactiveTreeTest > emptyStream_whenGivenEmptyTree PASSED
+
+ReactiveTreeTest > streamHasTwoEvents_whenTreeHasRoot_andBothLeaves_onPaths PASSED
+
+ReactiveTreeTest > streamHasSingleEvent_whenTreeHasOnlyRoot_andRootValueEqualsToTargetSum PASSED
+
+ReactiveTreeTest > streamHasSingleEvent_whenTreeHasRoot_andLeftLeaf_andValuesSumEqualsToTargetSum PASSED
+
+ReactiveTreeTest > streamHasEventsOf_rootToLeafPaths PASSED
 ```
 
 That is it. We are done. If you don't believe, you can use example from the leetcode exercise.
@@ -689,6 +701,10 @@ That is it. We are done. If you don't believe, you can use example from the leet
  * ~~Reactive stream has single event when tree has root and left leaf and sum of their values is equal to the target sum~~ :heavy_check_mark:
  * ~~Reactive stream has two events when tree has root and both leaves, root+left and root+right values are equal to the target sum~~ :heavy_check_mark:
  * ~~Reactive stream has list of root-to-leaf paths~~ :heavy_check_mark:
+
+## Source code
+
+You may find source code [here](https://github.com/Alex-Diez/alex-diez.github.io/tree/master/source-code/java-examples/reactive-tree/part-one).
 
 ## Conclusion
 
