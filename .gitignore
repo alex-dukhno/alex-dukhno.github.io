@@ -8,3 +8,6 @@ Gemfile.lock
 
 .idea/
 .gradle/
+
+build/
+out/

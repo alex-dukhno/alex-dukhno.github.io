@@ -323,7 +323,7 @@ test bowling_game_kata::tests::gutter_game ... FAILED
 failures:
 
 ---- bowling_game_kata::tests::gutter_game stdout ----
-	thread 'bowling_game_kata::tests::gutter_game' panicked at 'assertion failed: `(left == right)` (left: `-1`, right: `0`)', src/bowling_game_kata.rs:32
+  thread 'bowling_game_kata::tests::gutter_game' panicked at 'assertion failed: `(left == right)` (left: `-1`, right: `0`)', src/bowling_game_kata.rs:32
 note: Run with `RUST_BACKTRACE=1` for a backtrace.
 
 
@@ -439,7 +439,7 @@ test bowling_game_kata::tests::all_ones ... FAILED
 failures:
 
 ---- bowling_game_kata::tests::all_ones stdout ----
-	thread 'bowling_game_kata::tests::all_ones' panicked at 'assertion failed: `(left == right)` (left: `0`, right: `20`)', src/bowling_game_kata.rs:37
+  thread 'bowling_game_kata::tests::all_ones' panicked at 'assertion failed: `(left == right)` (left: `0`, right: `20`)', src/bowling_game_kata.rs:37
 note: Run with `RUST_BACKTRACE=1` for a backtrace.
 
 
@@ -536,7 +536,7 @@ test bowling_game_kata::tests::one_spare ... FAILED
 failures:
 
 ---- bowling_game_kata::tests::one_spare stdout ----
-	thread 'bowling_game_kata::tests::one_spare' panicked at 'assertion failed: `(left == right)` (left: `13`, right: `16`)', src/bowling_game_kata.rs:56
+  thread 'bowling_game_kata::tests::one_spare' panicked at 'assertion failed: `(left == right)` (left: `13`, right: `16`)', src/bowling_game_kata.rs:56
 note: Run with `RUST_BACKTRACE=1` for a backtrace.
 
 
@@ -686,7 +686,7 @@ test bowling_game_kata::tests::one_spare ... FAILED
 failures:
 
 ---- bowling_game_kata::tests::one_spare stdout ----
-	thread 'bowling_game_kata::tests::one_spare' panicked at 'assertion failed: `(left == right)` (left: `13`, right: `16`)', src/bowling_game_kata.rs:64
+  thread 'bowling_game_kata::tests::one_spare' panicked at 'assertion failed: `(left == right)` (left: `13`, right: `16`)', src/bowling_game_kata.rs:64
 note: Run with `RUST_BACKTRACE=1` for a backtrace.
 
 
@@ -895,7 +895,7 @@ test bowling_game_kata::tests::one_strike ... FAILED
 failures:
 
 ---- bowling_game_kata::tests::one_strike stdout ----
-	thread 'bowling_game_kata::tests::one_strike' panicked at 'index out of bounds: the len is 19 but the index is 19', /Users/rustbuild/src/rust-buildbot/slave/nightly-dist-rustc-mac/build/src/libcollections/vec.rs:1392
+  thread 'bowling_game_kata::tests::one_strike' panicked at 'index out of bounds: the len is 19 but the index is 19', /Users/rustbuild/src/rust-buildbot/slave/nightly-dist-rustc-mac/build/src/libcollections/vec.rs:1392
 note: Run with `RUST_BACKTRACE=1` for a backtrace.
 
 

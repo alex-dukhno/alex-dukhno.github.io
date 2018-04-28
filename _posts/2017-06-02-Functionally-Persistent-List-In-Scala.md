@@ -146,7 +146,7 @@ class PersistentList {
 [info] Tests: succeeded 0, failed 1, canceled 0, ignored 0, pending 0
 [info] *** 1 TEST FAILED ***
 [error] Failed tests:
-[error] 	PersistentListTest
+[error]   PersistentListTest
 [error] (persistent_list/test:test) sbt.TestsFailedException: Tests unsuccessful
 [error] Total time: 1 s, completed May 16, 2017 9:54:25 PM
 ```

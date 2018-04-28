@@ -250,7 +250,7 @@ test stack_kata::day_1::tests::pushes_one_element_onto_stack ... FAILED
 failures:
 
 ---- stack_kata::day_1::tests::pushes_one_element_onto_stack stdout ----
-	thread 'stack_kata::day_1::tests::pushes_one_element_onto_stack' panicked at 'assertion failed: `(left == right)` (left: `None`, right: `Some(1)`)', src/stack_kata/day_1.rs:31
+  thread 'stack_kata::day_1::tests::pushes_one_element_onto_stack' panicked at 'assertion failed: `(left == right)` (left: `None`, right: `Some(1)`)', src/stack_kata/day_1.rs:31
 note: Run with `RUST_BACKTRACE=1` for a backtrace.
 
 
@@ -563,7 +563,7 @@ test stack_kata::day_1::tests::pushes_thee_elements_into_stack ... FAILED
 failures:
 
 ---- stack_kata::day_1::tests::pushes_thee_elements_into_stack stdout ----
-	thread 'stack_kata::day_1::tests::pushes_thee_elements_into_stack' panicked at 'assertion failed: `(left == right)` (left: `None`, right: `Some(2)`)', src/stack_kata/day_1.rs:56
+  thread 'stack_kata::day_1::tests::pushes_thee_elements_into_stack' panicked at 'assertion failed: `(left == right)` (left: `None`, right: `Some(2)`)', src/stack_kata/day_1.rs:56
 note: Run with `RUST_BACKTRACE=1` for a backtrace.
 
 
@@ -837,7 +837,7 @@ test stack_kata::day_1::tests::iterate_over_stack ... FAILED
 failures:
 
 ---- stack_kata::day_1::tests::iterate_over_stack stdout ----
-	thread 'stack_kata::day_1::tests::iterate_over_stack' panicked at 'assertion failed: `(left == right)` (left: `None`, right: `Some(3)`)', src/stack_kata/day_1.rs:99
+  thread 'stack_kata::day_1::tests::iterate_over_stack' panicked at 'assertion failed: `(left == right)` (left: `None`, right: `Some(3)`)', src/stack_kata/day_1.rs:99
 note: Run with `RUST_BACKTRACE=1` for a backtrace.
 
 
@@ -1204,7 +1204,7 @@ test stack_kata::day_1::tests::ref_iterator_over_stack ... FAILED
 failures:
 
 ---- stack_kata::day_1::tests::ref_iterator_over_stack stdout ----
-	thread 'stack_kata::day_1::tests::ref_iterator_over_stack' panicked at 'assertion failed: `(left == right)` (left: `None`, right: `Some(3)`)', src/stack_kata/day_1.rs:147
+  thread 'stack_kata::day_1::tests::ref_iterator_over_stack' panicked at 'assertion failed: `(left == right)` (left: `None`, right: `Some(3)`)', src/stack_kata/day_1.rs:147
 note: Run with `RUST_BACKTRACE=1` for a backtrace.
 
 
