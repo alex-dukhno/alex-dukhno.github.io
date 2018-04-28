@@ -100,7 +100,7 @@ import java.util.List;
 import reactor.core.publisher.Flux;
 
 public class PathSum {
-  public Flux<List> findPaths(Tree tree, int sum) {
+  public Flux<List<Integer>> findPaths(Tree tree, int sum) {
     return null;
   }
 
@@ -128,7 +128,7 @@ The fix is very simple to the problem - we need to return empty `Flux`; that we 
 ```java
 //PathSum.java
 public class PathSum {
-  public Flux<List> findPaths(Tree tree, int sum) {
+  public Flux<List<Integer>> findPaths(Tree tree, int sum) {
     return Flux.empty();
   }
 }
@@ -205,7 +205,7 @@ Lets fix this with simple `if` statement.
 
 ```java
 //PathSum.java
-  public Flux<List> findPaths(Tree tree, int sum) {
+  public Flux<List<Integer>> findPaths(Tree tree, int sum) {
     if (tree != null) {
       return Flux.just(List.of(10));
     }
@@ -257,7 +257,7 @@ It fails as expected; the solution for that is `if` statement again.
 
 ```java
 //PathSum.java
-  public Flux<List> findPaths(Tree tree, int sum) {
+  public Flux<List<Integer>> findPaths(Tree tree, int sum) {
     if (tree != null) {
       if (tree.value == sum) {
         return Flux.just(List.of(tree.value));
@@ -319,7 +319,7 @@ A quick fix is to copy paste of two `if` statements. We need to check against `t
 
 ```java
 //PathSum.java
-  public Flux<List> findPaths(Tree tree, int sum) {
+  public Flux<List<Integer>> findPaths(Tree tree, int sum) {
     if (tree != null) {
       if (tree.value == sum) {
         return Flux.just(List.of(tree.value));
@@ -340,7 +340,7 @@ What we have to do is to create an empty list if tree node is not null add its v
 
 ```java
 //PathSum.java
-  public Flux<List> findPaths(Tree tree, int sum) {
+  public Flux<List<Integer>> findPaths(Tree tree, int sum) {
     List<Integer> path = new ArrayList<>();
     if (tree != null) {
       path.add(tree.value);
@@ -374,7 +374,7 @@ A sum from a current node to the root node is the sum of items in the list; iter
 
 ```java
 //PathSum.java
-  public Flux<List> findPaths(Tree tree, int sum) {
+  public Flux<List<Integer>> findPaths(Tree tree, int sum) {
     List<Integer> path = new ArrayList<>();
     if (tree != null) {
       path.add(tree.value);
@@ -455,7 +455,7 @@ As you may guess the fix is my favorite `if` statement that is a copy pasted of 
 
 ```java
 //PathSum.java
-  public Flux<List> findPaths(Tree tree, int sum) {
+  public Flux<List<Integer>> findPaths(Tree tree, int sum) {
     List<Integer> path = new ArrayList<>();
     if (tree != null) {
       path.add(tree.value);
@@ -495,7 +495,7 @@ ReactiveTreeTest > streamHasSingleEvent_whenTreeHasRoot_andLeftLeaf_andValuesSum
 
 ```java
 //PathSum.java
-  public Flux<List> findPaths(Tree tree, int sum) {
+  public Flux<List<Integer>> findPaths(Tree tree, int sum) {
     List<List<Integer>> paths = new ArrayList<>();
     List<Integer> path = new ArrayList<>();
     if (tree != null) {
@@ -536,7 +536,7 @@ Yes, the test fails as before, to fix this we need to create a separated list of
 
 ```java
 //PathSum.java
-  public Flux<List> findPaths(Tree tree, int sum) {
+  public Flux<List<Integer>> findPaths(Tree tree, int sum) {
     List<List<Integer>> paths = new ArrayList<>();
     List<Integer> path = new ArrayList<>();
     if (tree != null) {
@@ -579,7 +579,7 @@ We are not done yet. We have a code duplication. Let's create a method that recu
 
 ```java
 //PathSum.java
-  public Flux<List> findPaths(Tree tree, int sum) {
+  public Flux<List<Integer>> findPaths(Tree tree, int sum) {
     List<List<Integer>> paths = new ArrayList<>();
     addPathRecursively(tree, new ArrayList<>(), paths, sum);
     return Flux.fromIterable(paths);
