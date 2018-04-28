@@ -1,24 +1,29 @@
+package examples;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import reactor.core.publisher.Flux;
+import reactor.core.publisher.FluxSink;
 
 public class PathSum {
   public Flux<List<Integer>> findPaths(Tree tree, int sum) {
-    List<List<Integer>> paths = new ArrayList<>();
-    addPathRecursively(tree, new ArrayList<>(), paths, sum);
-    return Flux.fromIterable(paths);
+    return Flux.<List<Integer>>create(
+        emitter -> {
+          addPathRecursively(tree, new ArrayList<>(), sum, emitter);
+          emitter.complete();
+        }
+    );
   }
 
-  private void addPathRecursively(Tree node, List<Integer> path, List<List<Integer>> paths, int sum) {
+  private void addPathRecursively(Tree node, List<Integer> path, int sum, FluxSink<List<Integer>> emitter) {
     if (node != null) {
       path.add(node.value);
       if (node.left == null && node.right == null && sum(path) == sum) {
-        paths.add(path);
+        emitter.next(path);
       } else {
-        addPathRecursively(node.left, new ArrayList<>(path), paths, sum);
-        addPathRecursively(node.right, new ArrayList<>(path), paths, sum);
+        addPathRecursively(node.left, new ArrayList<>(path), sum, emitter);
+        addPathRecursively(node.right, new ArrayList<>(path), sum, emitter);
       }
     }
   }

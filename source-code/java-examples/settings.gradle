@@ -1,3 +1,4 @@
 rootProject.name = 'java-examples'
 
 include ':reactive-tree:part-one'
+include ':reactive-tree:part-two'
