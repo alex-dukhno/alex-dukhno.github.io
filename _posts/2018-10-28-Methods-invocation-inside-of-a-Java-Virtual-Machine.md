@@ -5,11 +5,11 @@ tags: [JVM]
 ---
 
 [Java Virtual Machine](https://en.wikipedia.org/wiki/Java_virtual_machine) (JVM) is an abstract virtual machine that executes [Java bytecode](https://en.wikipedia.org/wiki/Java_bytecode). JVM has lots of [implementations](https://en.wikipedia.org/wiki/List_of_Java_virtual_machines). [HostSpot JVM](https://en.wikipedia.org/wiki/HotSpot), as the most popular JVM, will be taken as an example of the implementation throughout the article.
-Initially, JVM was designed at [Sun Microsystems](https://en.wikipedia.org/wiki/Sun_Microsystems) to execute [Java](https://en.wikipedia.org/wiki/Java_(software_platform)) programs. Despite the fact that Java and JVMs are influencing each other designs; engineers that work on JVMs are trying to make them as general as possible. That is why JVM is a great execution engine for other languages than Java; such as [Scala](https://www.scala-lang.org/) or [Kotlin](https://kotlinlang.org/) which are statically typed and [Groovy](http://groovy-lang.org/) or [Ruby](http://ruby-lang.org/) which are dynamically typed languages. In this article, I will take a look at how JVM handles method invocation and its support for static and dynamic programming languages.
+Initially, JVM was designed at [Sun Microsystems](https://en.wikipedia.org/wiki/Sun_Microsystems) to execute [Java](https://en.wikipedia.org/wiki/Java_(software_platform)) programs. Despite the fact that Java and JVMs are influencing each other designs; engineers that work on JVMs are trying to make them as general as possible. That is why JVM is a great execution engine for other languages than Java; such as [Scala](https://www.scala-lang.org/) and [Kotlin](https://kotlinlang.org/) which are statically typed and [Groovy](http://groovy-lang.org/) and [Ruby](http://ruby-lang.org/) which are dynamically typed languages. In this article, I will take a look at how JVM handles method invocation and its support for static and dynamic programming languages.
 
 ## JVM Method Frame
 
-Let's get started with methods structure at runtime. Every time when JVM invokes any method it creates a frame for the method on current thread stack. JVM method frame contains local variables array, operand stack and reference to a current class constant pool. JVM allocates memory for local variables array and puts all method arguments at the beginning of the array. The size of the array is known during execution time and is precomputed before the runtime phase. The local variable array contains values of local variables for primitives and references to objects on the heap. JVM uses the operand stack to execute bytecode instruction. The size of the operand stack is also precomputed. Thus JVM knows exactly how much memory it should allocate on a thread stack for a particular method. A class constant pool is kind of storage of different data, such as names of other classes and methods, variable types and so on. It serves for linking other parts of the runtime image with a current method.
+Let's get started with methods structure at runtime. Every time when JVM invokes any method it creates a frame for the method on a current thread stack. JVM method frame contains local variables array, operand stack and reference to a current class constant pool. A local variables array is used to store method's local values and method's argument values. JVM allocates memory for local variables array and puts all method arguments at the beginning of the array. The size of the array is known during execution time and is precomputed before the runtime phase. The local variable array contains values of local variables for primitives and references to objects on the heap. JVM uses the operand stack to execute bytecode instruction. JVM either executes bytecode instruction that pushes an operand on the stack or pops needed operands number for an instruction and executes the instruction. The size of the operand stack is also precomputed. Thus JVM knows exactly how much memory it should allocate on a thread stack for a particular method. A class constant pool is kind of storage of different data, such as names of other classes and methods, variable types and so on. It serves for linking other parts of the runtime image with a current method.
 Let's have a look how JVM executes bytecodes operations with a simple example of two numbers addition. Here is the Java code:
 
 ```java
@@ -31,7 +31,7 @@ And the following is the bytecode representation:
 7: istore_3
 ```
 
-When JVM encounter `iconst_1` operation it pushes `1` on the operand stack. `i` in `iconst_1` means `integer` type, `const` - constant, `1` - a value of the constant. (JVM bytecode instruction set contains such operations for constants up to value `5`). Then it reads next instruction which is `istore_1`. This tells JVM to pop a value from the stack and store it into the array of local variables under index `1`. Then JVM repeats the same operation with the constant `2`. Operations `iload_1` and `iload_2` tell JVM to push values from the local variables array onto operand stack; and `iadd` pops both variables from the operand stack, add them and pushes result on the operand stack. `istore_3` simply pops result of addition from operand stack and store it to local variables array under the third index.
+When JVM encounter `iconst_1` instruction it pushes `1` on the operand stack. `i` in `iconst_1` means `integer` type, `const` - constant, `1` - a value of the constant. (JVM bytecode instruction set contains such instructions for constants up to value `5`). Then it reads next instruction which is `istore_1`. This tells JVM to pop a value from the stack and store it into the array of local variables under index `1`. Then JVM repeats the same operation with the constant `2`. Instructions `iload_1` and `iload_2` tell JVM to push values from the local variables array at indexes `1` and `2` onto operand stack; and `iadd` pops both variables from the operand stack, add them and pushes result on the operand stack. `istore_3` simply pops result of addition from operand stack and store it to local variables array under the third index.
 
 ## JVM methods invocations
 
@@ -55,7 +55,73 @@ JVM instruction set has 5 bytecode instructions for method invocation. In this p
 
 ## JVM method invocation instructions closer look
 
-It seems a little odd that JVM specifies 4 different instruction basically for only one procedure - a method invocation. We need to consider what happens before JVM starts a method invocation to understand why so many instructions. Before invoking a method JVM must perform two actions: method resolution and method lookup. Let's have a look at both these actions separately. Every method invocation instruction has an index to a method descriptor in a class constant pool. A method descriptor has indexes to a class name and a method name and other attributes such as method return type, method parameters type and so on. A method resolution is an act of finding that the class has the method with attributes that specified in the method descriptor. A method lookup is an action of finding the method's index in the class methods table. Knowing that let's dig into how HotSpot JVM takes advantages of these facts.
+It seems a little odd that JVM specifies 4 different instruction basically for only one procedure - a method invocation. We need to consider what happens before JVM starts a method invocation to understand why it has so many instructions. Before invoking a method JVM must perform two actions: method resolution and method lookup. Let's have a look at both these actions separately. Every method invocation instruction has an index to an entry in a class constant pool. The entry consist of a method name and a method descriptor. You can find this data in decompiled java code. Let's examine the code below:
+
+```java
+public class Main {
+  public static void main(String[] args) {
+    someMethod(1, "2", 3L, new Object());
+  }
+
+  private static void someMethod(int i, String s, long l, Object o) {
+  }
+}
+```
+
+The code snippet can be compiled with
+
+```sh
+javac Main.java
+```
+
+and then decompiled with
+
+```sh
+javap -c -p -v Main.class
+```
+
+After that we can see the following class constant pool and bytecode instructions of `main` method.
+
+```
+//...
+Constant pool:
+   #1 = Methodref          #5.#18         // java/lang/Object."<init>":()V
+   #2 = String             #19            // 2
+   #3 = Long               3l
+   #5 = Class              #20            // java/lang/Object
+   #6 = Methodref          #7.#21         // Main.someMethod:(ILjava/lang/String;JLjava/lang/Object;)V
+   #7 = Class              #22            // Main
+   #8 = Utf8               <init>
+   #9 = Utf8               ()V
+  #10 = Utf8               Code
+  #11 = Utf8               LineNumberTable
+  #12 = Utf8               main
+  #13 = Utf8               ([Ljava/lang/String;)V
+  #14 = Utf8               someMethod
+  #15 = Utf8               (ILjava/lang/String;JLjava/lang/Object;)V
+  #16 = Utf8               SourceFile
+  #17 = Utf8               Main.java
+  #18 = NameAndType        #8:#9          // "<init>":()V
+  #19 = Utf8               2
+  #20 = Utf8               java/lang/Object
+  #21 = NameAndType        #14:#15        // someMethod:(ILjava/lang/String;JLjava/lang/Object;)V
+  #22 = Utf8               Main
+//...
+ 0: iconst_1
+ 1: ldc           #2                  // String 2
+ 3: ldc2_w        #3                  // long 3l
+ 6: new           #5                  // class java/lang/Object
+ 9: dup
+10: invokespecial #1                  // Method java/lang/Object."<init>":()V
+13: invokestatic  #6                  // Method someMethod:(ILjava/lang/String;JLjava/lang/Object;)V
+16: return
+```
+
+> `javap` will generate a method name and its descriptor in a comment next to the method invocation
+
+The `13: invokestatic  #6` points to the sixth entry in the class constant pool that contains the other two indexes `#6 = Methodref #7.#21`. `#7` is resolved into string value of class name `Main` and `#21` into the string representation of method name `someMethod` and string value of the method descriptor `(ILjava/lang/String;JLjava/lang/Object;)V`. Parameter types are enclosed by parentheses and the method return type is after them. In this particular example `I` symbol stands for `int` type, `Ljava/lang/String;` - a reference to a instance of `java.lang.String`, `J` - `long` and `Ljava/lang/Object;` - a reference to a `java.lang.Object` instance.
+
+Having this data JVM perform a method resolution which is an process of finding that the class has the method with the method name and its attributes that specified in the method descriptor. Thereafter JVM proceeds with a method lookup. It is an operation of finding the method's index in the class methods table. Knowing that let's dig into how HotSpot JVM takes advantages of these facts.
 
 #### `invokestatic`
 
