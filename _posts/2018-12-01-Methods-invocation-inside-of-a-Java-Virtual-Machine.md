@@ -9,32 +9,32 @@ Initially, JVM was designed at [Sun Microsystems](https://en.wikipedia.org/wiki/
 
 ## Methods constraints on JVM
 
-All programs that are written in the wild, generally speaking, are a bunch of methods collected in some order to solve particular problems. Java bytecode is an interface between a programming language and JVM as an execution machinery. Any language that runs on JVM should have a compiler or a runtime that produce a valid bytecode that JVM understands how to execute. Methods are one of the artifacts of a programming language. Let's take a look at a Java method that has a few arguments with different types to see what kind of bytecode JVM expects:
+All programs that are written in the wild, generally speaking, are a bunch of methods structured in some manner to solve a particular problem. Java bytecode is an interface between a programming language and JVM as an execution machinery. Any language that runs on JVM should have a compiler or a runtime that produce a valid bytecode that JVM understands and executes. Methods are the main artifacts of a programming language. Let's take a look at a Java method with a few arguments of different types and see what bytecode JVM expects:
 
 ```java
 private static void someMethod(int i, String s, long l, Object o) {
 }
 ```
 
-If we compile it with `javac` and then read with `javap` program than we see that representation of the method is the bytecode below:
+Let us compile it with `javac` and read with `javap` program to see the bytecode representation of the method:
 
 ```bc
-//... some bytecode is ommited
+//... some bytecode is omitted
 private static void someMethod(int, java.lang.String, long, java.lang.Object);
   descriptor: (ILjava/lang/String;JLjava/lang/Object;)V
   flags: (0x000a) ACC_PRIVATE, ACC_STATIC
   Code:
     stack=0, locals=5, args_size=4
         0: return
-//... some bytecode is ommited
+//... some bytecode is omitted
 ```
 
-Any method has to have a descriptor, access flags, and code. We will take a look at methods structure in the next sections of the article. What I want to concentrate right now is that JVM requires that all methods have a descriptor with classes/types; thus static languages are quite in a better situation than dynamic languages. Static language has to have a smart enough compiler that will produce valid bytecode. Dynamic languages have to do lots of tricks to satisfy JVM to be executed. Let's take a look at how JVM deal with methods invocation and their execution and then have a closer look at dynamic language example and what implementors can do about constraint that JVM enforces.
+Any method has to have a descriptor, access flags, and code. We will take a look at methods structure in the next sections of the article. What I want focus on right now is that JVM requires that all methods have a descriptor with classes/types; thus static languages are quite in a better situation than dynamic languages. Static languages need to have a smart compiler that will produce valid bytecode. Dynamic languages do a lot of tricks to provide JVM bytecode that executes in optimal way. Let's take a look at how JVM deals with method invocation and its execution. Then let's have a closer look at dynamic language example and what developers can do to overcome constraint that JVM enforces.
 
 ## JVM Method Frame
 
-Let's get started with methods structure at runtime. Every time when JVM invokes any method it creates a frame for the method on a current thread stack. JVM method frame contains local variables array, operand stack and reference to a current class constant pool. A local variables array is used to store method's local values and method's argument values. JVM allocates memory for local variables array and puts all method arguments at the beginning of the array. The size of the array is known during execution time and is precomputed before the runtime phase. You should have seen this in `Code:` section with `locals=5` in the previous section example. The local variable array contains values of local variables for primitives and references to objects on the heap. JVM uses the operand stack to execute bytecode instruction. JVM either executes bytecode instruction that pushes an operand on the stack or pops needed operands number for an instruction and executes the instruction. The size of the operand stack is also precomputed. It is also could be seen in `Code:` section as `stack=0` in the code snippet above. Thus JVM knows exactly how much memory it should allocate on a thread stack for a particular method. A class constant pool is kind of storage of different data, such as names of other classes and methods, variable types and so on. It serves for linking other parts of the runtime image with a current method.
-Let's have a look how JVM executes bytecodes operations with a simple example of two numbers addition. Here is the Java code:
+Let's get started with methods structure at runtime. Every time when JVM invokes any method it creates a frame for the method on a current thread stack. JVM method frame contains local variables array, operand stack and reference to a current class constant pool. A local variables array is used to store method's local values and method's argument values. JVM allocates memory for local variables array and puts all method arguments at the beginning of the array. The size of the array is known during execution time and is precomputed before the runtime phase. You should have seen this in `Code:` section with `locals=5` in the previous section example. The local variable array contains values of local variables for primitives and references to objects on the heap. JVM uses the operand stack to execute bytecode instruction. JVM either executes bytecode instruction that pushes an operand on the stack or pops needed operands number for an instruction and executes the instruction. The size of the operand stack is also precomputed. It is also could be seen in `Code:` section as `stack=0` in the code snippet above. Thus JVM has the exact information on how much memory it needs to allocate on a thread stack for a particular method. A class constant pool is kind of storage of different data, such as names of the other classes and methods, variable types and so on. It serves for linking other parts of the runtime image with a current method.
+Let's have a look how JVM executes bytecodes operations with a simple example of sum of two numbers. Here is the Java code:
 
 ```java
 int a = 1;
@@ -55,11 +55,11 @@ And the following is the bytecode representation:
 7: istore_3
 ```
 
-When JVM encounter `iconst_1` instruction it pushes `1` on the operand stack. `i` in `iconst_1` means `integer` type, `const` - constant, `1` - a value of the constant. (JVM bytecode instruction set contains such instructions for constants up to value `5`). Then it reads next instruction which is `istore_1`. This tells JVM to pop a value from the stack and store it into the array of local variables under index `1`. Then JVM repeats the same operation with the constant `2`. Instructions `iload_1` and `iload_2` tell JVM to push values from the local variables array at indexes `1` and `2` onto operand stack; and `iadd` pops both variables from the operand stack, add them and pushes result on the operand stack. `istore_3` simply pops result of addition from operand stack and store it to local variables array under the third index.
+When JVM encounter `iconst_1` instruction it pushes `1` on the operand stack. `i` in `iconst_1` means `integer` type, `const` - constant, `1` - a value of the constant. (JVM bytecode instruction set contains such instructions for constants up to value `5`). Then it reads next instruction which is `istore_1`. This tells JVM to pop a value from the stack and store it into the array of local variables under index `1`. Then JVM repeats the same operation with the constant `2`. Instructions `iload_1` and `iload_2` tell JVM to push values from the local variables array at indexes `1` and `2` the operand stack; and `iadd` pops both variables from the operand stack, adds them and pushes result on the operand stack. `istore_3` simply pops result of addition from operand stack and store it to local variables array under the third index.
 
 ## JVM methods invocations
 
-JVM instruction set has 5 bytecode instructions for method invocation. In this part of the article I briefly look through four of them: `invokestatic`, `invokeinterface`, `invokevirtual` and `invokespecial`; `invokedynamic` deserves its own part of the article. Let's have a look at the first four instructions.
+The JVM instruction set has 5 different bytecode instructions for a method invocation. In this part of the article I briefly look through four of them: `invokestatic`, `invokeinterface`, `invokevirtual` and `invokespecial`; `invokedynamic` deserves a dedicated part of the article. Let's have a look at the first four instructions.
 
 #### `invokestatic`
 
@@ -67,7 +67,7 @@ JVM instruction set has 5 bytecode instructions for method invocation. In this p
 
 #### `invokespecial`
 
-`invokespecial` instruction indicates an invocation of `private` instance methods, superclass methods or `constructor`s.
+`invokespecial` instruction indicates an invocation of `private` instance methods, `superclass` methods or `constructor`s.
 
 #### `invokevirtual`
 
@@ -79,7 +79,7 @@ JVM instruction set has 5 bytecode instructions for method invocation. In this p
 
 ## JVM method invocation instructions closer look
 
-It seems a little odd that JVM specifies 4 different instruction basically for only one procedure - a method invocation. We need to consider what happens before JVM starts a method invocation to understand why it has so many instructions. Before invoking a method JVM must perform two actions: method resolution and method lookup. Let's have a look at both these actions separately. Every method invocation instruction has an index to an entry in a class constant pool. The entry consist of a method name and a method descriptor. You can find this data in decompiled java code. Let's examine the code below:
+It seems a little odd that JVM specifies 4 different instruction for the only one purpose - just a method invocation. We need to consider what happens before JVM starts a method invocation to understand why it has so many variations. Before invoking a method JVM performs two actions: method resolution and method lookup. Let's have a look at these actions separately. Every method invocation instruction has an index to an entry in a class constant pool. The entry consist of a method name and a method descriptor. You can find this data in decompiled java code. Let's examine the code below:
 
 ```java
 public class Main {
@@ -149,27 +149,27 @@ Having this data JVM perform a method resolution which is an process of finding 
 
 #### `invokestatic`
 
-When HotSpot JVM encounters this instruction at the first time it performs method resolution and lookup. However, knowing that `static` methods can't be overridden HotSpot wires method invocation inside a caller, and when JVM execute current method next time it does perform neither method resolution nor lookup; it immediately invokes the method.
+When HotSpot JVM encounters this instruction for the first time it performs method resolution and lookup. However, as `static` methods can't be overridden HotSpot wires method invocation inside a caller, and when JVM executes current method for the next time it does not perform neither method resolution nor lookup; it immediately invokes the method.
 
 #### `invokespecial`
 
-When HotSpot JVM come across `invokespecial` instruction it executes the same procedure as with `invokestatic` except that in addition, it should check that a class instance is not null every time when the method is invoked.
+When HotSpot JVM comes across `invokespecial` instruction it performs the same procedure as for `invokestatic` except that additionally, it checks that a class instance is not null every time when the method is invoked.
 
 #### `invokevirtual`
 
-All Java Developers know that instance methods can be overridden and the method signature in a subclass has to match the method signature in a superclass. Those, HotSpot JVM saves the subclass method at the same index in method table as in the superclass. Because of that HotSpot JVM after a method resolution can save method index and use it for method lookup next time when the method is invoked.
+All Java developers know that instance methods can be overridden and the method signature in a subclass has to match the method signature in a superclass. Those, HotSpot JVM saves the subclass method at the same index in method table as in the superclass. Because of that HotSpot JVM after a method resolution can save method index and uses it for method lookup next time when the method is invoked.
 
 #### `invokeinterface`
 
-When HotSpot JVM encounters `invokeinterface` instruction it completes both method resolution and method lookup every time when a method is invoked, because methods that a class implements from an interface are stored in different methods table and therefore each class has a different index to their implementations of those methods.
+When HotSpot JVM encounters `invokeinterface` instruction it completes both method resolution and method lookup every time when a method is invoked because methods that a class implements from an interface are stored in different methods table and therefore each class has a different index to their implementations of those methods.
 
 ## Invokedynamic
 
-`invokedynamic` is a quite new bytecode instruction added in JVM 1.7. Before diving inside, let's have a look at a problem why `invokedynamic` was added to bytecode instruction set.
+`invokedynamic` is a quite new bytecode instruction added in JVM 1.7. Before diving deeper, let's clarify the reason why `invokedynamic` was added to bytecode instruction set.
 
 #### A dynamic language problem
 
-JVM is a great execution runtime, however, dynamic languages have a problem to be implemented on it. The problem is that JVM requires a method to be invoked has an explicit receiver type (class or its instance), parameters types and a return type. Let's take a look at an example with a Ruby code
+JVM is a great execution runtime, however, dynamic languages have a problem to be implemented on it. The problem is that JVM requires a strict signature of a method before invocation, an explicit receiver type (class or its instance), parameters types and a return type. Let's take a look at an example with a Ruby code
 
 ```ruby
 def add(a, b)
@@ -177,7 +177,7 @@ def add(a, b)
 end
 ```
 
-Here, arguments `a` and `b` can have any type and `+` is a method that is invoked on object `a`. `a` and `b` could be integers or strings or both, and because of dynamic nature of Ruby all checks: what method with which arguments should be called; are made during runtime. Thus JRuby, that is a Ruby implementation on JVM, has to generate bytecode methods from Ruby code and manage its own methods tables with references to method bodies. One of the ways to get a reference to a method is JVM reflection API.
+Here, arguments `a` and `b` can have any type and `+` is a method that is invoked on object `a`. `a` and `b` could be integers or strings or both, and because of dynamic nature of Ruby all checks: what method with which arguments should be called; are made during runtime. Thus JRuby, that is a Ruby implementation on JVM,  generates bytecode methods from Ruby code and manage its own methods tables with references to method bodies. One of the ways to get a reference to a method is JVM reflection API.
 
 #### Reflection
 
@@ -190,7 +190,7 @@ Object hello = substring.invoke(object, 0, 5);
 System.out.println(hello); // will print out "Hello"
 ```
 
-Once dynamic language resolved reference to a `Method` object it can save it and invoke every time it needs. One of the problems with reflection is that it will be always slower than a direct invocation of a method because JVM has to check method visibility, receiver and arguments types, parameters should be collected into an array (that produce "garbage"). All these checks must be made every time when a method is invoked that prevents JVM kicks JIT compiler in and optimize the code. For these and other reasons, `invokedynamic` bytecode instruction was added.
+Once dynamic language resolved reference to a `Method` object it can save it and invoke every time it needs. One of the problems with reflection is that it is always slower than a direct invocation of a method because JVM needs check method visibility, receiver and arguments types, parameters should be collected into an array (that produce "garbage"). All these checks are executed every time a method is invoked that prevents JVM from kicking JIT compiler in and optimizing the code. For these and other reasons, `invokedynamic` bytecode instruction was added.
 
 #### Invokedynamic
 
@@ -204,7 +204,7 @@ Object hello = substring.invoke("Hello, World!", 0, 5);
 System.out.println(hello); // will print out "Hello"
 ```
 
-When the JVM executes `MethodHandle#invoke` method first time it will make all checks and wired up `MethodHandle` with exact method thus next `MethodHandle#invoke` method invocations will be direct calls of a method that was looked up. What is more `MethodHandle`s allow to bind particular argument values to parameters; as in the code below:
+When the JVM executes `MethodHandle#invoke` method first time it will make all checks and wired up `MethodHandle` with exact method thus next `MethodHandle#invoke` method invocations will be direct calls of a method that was looked up. What is more, `MethodHandle`s allow to bind particular argument values to parameters; as in the code below:
 
 ```java
 MethodHandle substring = lookup.findVirtual(String.class, "substring", methodType);
@@ -301,4 +301,4 @@ java -jar target/benchmark.jar ReflectionVsMethodHandlers
 
 ## InvokeConclusion
 
-In this article, I briefly take a look at different JVM bytecode instruction for methods invocation and how JVM handles methods invocation and execution; also to get a taste of `invokedynamic` instruction and how it could be exploited by dynamic languages implementations on Java Virtual Machine. For those who are interested in the more detailed explanation, I suggest you read [a blog post from Charles Nutter, who is a core JRuby developer](http://blog.headius.com/2008/09/first-taste-of-invokedynamic.html), and, of course, [two article from John Rose,](https://blogs.oracle.com/jrose/method-handles-in-a-nutshell) [who is a virtual machine architect at Oracle](https://blogs.oracle.com/jrose/dynamic-invocation-in-the-vm). By all means, there are a lot of things going inside a JVM when it handles a method invocation and this article scratches the surface of the complex machinery that happens under the hood of Java Virtual Machine.
+In this article, we had a brief look at different JVM bytecode instructions for method invocation and how JVM handles  execute it; also we got a taste of `invokedynamic` instruction and how it could be exploited by dynamic languages implementations on Java Virtual Machine. For those who are interested in the more detailed explanation, I suggest reading [a blog post from Charles Nutter, who is a core JRuby developer](http://blog.headius.com/2008/09/first-taste-of-invokedynamic.html), and, of course, [two article from John Rose,](https://blogs.oracle.com/jrose/method-handles-in-a-nutshell) [who is a virtual machine architect at Oracle](https://blogs.oracle.com/jrose/dynamic-invocation-in-the-vm). By all means, there are a lot of things going inside a JVM when it handles a method invocation and this article just scratches the surface of the complex machinery that happens under the hood of Java Virtual Machine.
