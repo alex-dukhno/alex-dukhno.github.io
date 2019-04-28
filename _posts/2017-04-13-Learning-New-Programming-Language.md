@@ -23,7 +23,7 @@ At that time my team leader told me about [`code katas`](http://codekata.com/) a
 
 ## Writing a pet project
 
-A pet project is a sort of project where you can work with what you want in the way you want. You don't have to finish the project, you are not going to ship it. But it must be started if you want to gain experience. It must be a subject that you are very interested. What about me - I like database and distributed systems. You may want to have a look at my article [`database as a pet project`](https://github.com/Alex-Diez/blog/blob/master/Database-as-a-pet-project.md) where I describe why it is a good example of practicing software development skills. Indeed, more than a year ago I started the pet project. It's already taken me two attempts ... and I am going to have one more. The most exciting part of the process is seeing how my view of software engineering is changing.
+A pet project is a sort of project where you can work with what you want in the way you want. You don't have to finish the project, you are not going to ship it. But it must be started if you want to gain experience. It must be a subject that you are very interested. What about me - I like database and distributed systems. You may want to have a look at my article [`database as a pet project`](https://github.com/alex-dukhno/blog/blob/master/Database-as-a-pet-project.md) where I describe why it is a good example of practicing software development skills. Indeed, more than a year ago I started the pet project. It's already taken me two attempts ... and I am going to have one more. The most exciting part of the process is seeing how my view of software engineering is changing.
 
 ## Contribute to an open source project
 
