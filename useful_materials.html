@@ -1,0 +1,14 @@
+---
+layout: page
+title: Useful Materials
+---
+
+<p>You will find here list of useful spread sheets for software engineering</p>
+
+{% for useful_material in site.useful_materials %}
+<h2>
+  <a href="{{ useful_material.url }}">
+    {{ useful_material.title }}
+  </a>
+</h2>
+{% endfor %}
