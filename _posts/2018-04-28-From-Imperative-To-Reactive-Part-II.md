@@ -218,7 +218,7 @@ examples.ReactiveTreeTest > streamHasEventsOf_rootToLeafPaths PASSED
 
 ## Source code
 
-The source code for this article you can find [here](https://github.com/Alex-Diez/alex-diez.github.io/tree/master/source-code/java-examples/reactive-tree/part-two/src)
+The source code for this article you can find [here](https://github.com/alex-dukhno/alex-diez.github.io/tree/master/source-code/java-examples/reactive-tree/part-two/src)
 
 ## Wrap up
 

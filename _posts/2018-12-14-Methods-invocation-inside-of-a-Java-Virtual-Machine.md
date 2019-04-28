@@ -290,7 +290,7 @@ ReflectionVsMethodHandlers.substringReflectCall     avgt   15  26.658 ± 0.268  
 
 As you can see, the `MethodHandle` invocation is slower than a direct call, however, it is faster than a reflection call.
 
-You may find the full source code of the experiments [here](https://github.com/Alex-Diez/java-benchmarks/blob/master/src/main/java/org/samples/ReflectionVsMethodHandlers.java). I used [JMH](http://openjdk.java.net/projects/code-tools/jmh/) for benchmarks measurements - to run them by yourself make sure that you have [java](https://www.oracle.com/technetwork/java/javase/overview/index.html) and [maven](https://maven.apache.org) installed and simply run the following commands in a terminal:
+You may find the full source code of the experiments [here](https://github.com/alex-dukhno/java-benchmarks/blob/master/src/main/java/org/samples/ReflectionVsMethodHandlers.java). I used [JMH](http://openjdk.java.net/projects/code-tools/jmh/) for benchmarks measurements - to run them by yourself make sure that you have [java](https://www.oracle.com/technetwork/java/javase/overview/index.html) and [maven](https://maven.apache.org) installed and simply run the following commands in a terminal:
 
 ```sh
 mvn clean install

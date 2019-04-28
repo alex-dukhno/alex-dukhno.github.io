@@ -704,7 +704,7 @@ That is it. We are done. If you don't believe, you can use example from the leet
 
 ## Source code
 
-You may find source code [here](https://github.com/Alex-Diez/alex-diez.github.io/tree/master/source-code/java-examples/reactive-tree/part-one).
+You may find source code [here](https://github.com/alex-dukhno/alex-diez.github.io/tree/master/source-code/java-examples/reactive-tree/part-one).
 
 ## Conclusion
 
