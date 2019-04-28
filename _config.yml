@@ -23,6 +23,7 @@ description: A virtual proof that name is awesome!
 
 # List of links in the navigation bar
 navbar-links:
+  Workshops: "workshops"
   About Me: "aboutme"
   Author's home: "https://alex-diez.github.io/"
 
@@ -223,3 +224,7 @@ prose:
 plugins:
   - jekyll-paginate
   - jekyll-sitemap
+
+collections:
+  workshops:
+    output: true

@@ -1,0 +1,14 @@
+---
+layout: page
+title: Workshops
+---
+
+<p>You will find here list of workshops that I conducted over my career</p>
+
+{% for workshop in site.workshops %}
+<h2>
+  <a href="{{ workshop.url }}">
+    {{ workshop.title }}
+  </a>
+</h2>
+{% endfor %}
