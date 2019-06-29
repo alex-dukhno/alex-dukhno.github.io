@@ -17,6 +17,10 @@ My mission is to build teams that develop products that users love.
 
 My interests are concurrency and distributed systems, functional programming, system programming, and operating systems and hardware design.
 
-### Contact me
+#### Contact me
 
-[alex.dukhno@icloud.com](mailto:alex.dukhno@icloud.com)
+My email is [alex.dukhno@icloud.com](mailto:alex.dukhno@icloud.com). I reply within 72 hours.
+
+#### Follow me
+
+I use [twitter](https://twitter.com/alex_dukhno) for gathering and sharing information about technology.
