@@ -5,18 +5,18 @@ title: About me
 
 **My name is Alex. I am a software developer.**
 
-I prefer to work on critical parts of software systems and take responsibility for the full development cycle of products.
+My mission is to build teams that develop products that users love. To accomplish it:
 
-I apply engineering practices such as test-driven development, continues integration and continues deployment to build a product that end-users like. That is what helps me in delivering quality software written in Java, Elixir, Ruby, Python and JavaScript.
+ * I share my knowledge and experience with the company engineers by delivering workshop and training on test-driven development.
+ * I work with the team on critical parts of software systems taking responsibility for the full development cycle of products.
+ * I promote engineering practices such as test-driven development, continues integration and continues deployment in my team and company to build products that end-users like.
+ * I assist the team in delivering quality software written in Java, Elixir, Ruby, Python, and JavaScript.
+ * I sharp my programming skills by constantly doing [coding exercises in different languages](https://github.com/alex-dukhno?utf8=✓&tab=repositories&q=tdd-katas&type=&language=).
 
-My mission is to build teams that develop products that users love. That is why I implement and deliver workshop and training on test-driven development for the company engineers.
-
-I sharp my programming skills by constantly doing [coding exercises in different languages](https://github.com/alex-dukhno?utf8=✓&tab=repositories&q=tdd-katas&type=&language=).
-
-#### Contact me
+**Contact me**
 
 My email is [alex.dukhno@icloud.com](mailto:alex.dukhno@icloud.com). I reply within 72 hours.
 
-#### Follow me
+**Follow me**
 
 I use [twitter](https://twitter.com/alex_dukhno) for gathering and sharing information about technology.
