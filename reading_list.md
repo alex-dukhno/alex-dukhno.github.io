@@ -46,6 +46,14 @@ title: Reading List
 
  * [The Log: What every software engineer should know about real-time data’s unifying abstraction](https://engineering.linkedin.com/distributed-systems/log-what-every-software-engineer-should-know-about-real-time-datas-unifying)
 
+**Concurency**
+
+ * [Writing a seqlock in Rust](https://pitdicker.github.io/Writing-a-seqlock-in-Rust/)
+ * [Spinlocks Considered Harmful](https://matklad.github.io/2020/01/02/spinlocks-considered-harmful.html)
+ * [Mutexes Are Faster Than Spinlocks](https://matklad.github.io/2020/01/04/mutexes-are-faster-than-spinlocks.html)
+ * [Measuring Mutexes, Spinlocks and how Bad the Linux Scheduler Really is](https://probablydance.com/2019/12/30/measuring-mutexes-spinlocks-and-how-bad-the-linux-scheduler-really-is/)
+ * [I'm not feeling the async pressure](https://lucumr.pocoo.org/2020/1/1/async-pressure/)
+
 **Distributed Systems**
 
  * [Turning the database inside-out with Apache Samza](https://martin.kleppmann.com/2015/03/04/turning-the-database-inside-out.html)
@@ -56,7 +64,30 @@ title: Reading List
  * [Strong consistency models](https://aphyr.com/posts/313-strong-consistency-models)
  * [Jepsen: MongoDB](https://aphyr.com/posts/284-call-me-maybe-mongodb)
  * [Consensus Protocols: Two-Phase Commit](https://www.the-paper-trail.org/post/2008-11-27-consensus-protocols-two-phase-commit/)
+ * [Exactly-once or not, atomic broadcast is still impossible in Kafka - or anywhere](https://www.the-paper-trail.org/post/2017-07-28-exactly-not-atomic-broadcast-still-impossible-kafka/)
+ * [Exactly-once Semantics are Possible: Here’s How Kafka Does it](https://www.confluent.io/blog/exactly-once-semantics-are-possible-heres-how-apache-kafka-does-it/)
+ * [Transactional Messaging in Kafka](https://www.confluent.io/blog/transactions-apache-kafka/)
+ * [The Case Against Queues](http://widgetsandshit.com/teddziuba/2011/02/the-case-against-queues.html)
+ * [DBMS Musings](http://dbmsmusings.blogspot.com/2019/08/an-explanation-of-difference-between.html)
 
 **Linux**
 
  * [How are Unix pipes implemented?](https://toroid.org/unix-pipe-implementation)
+
+**Software Development**
+
+ * [Revenge of the Nerds](http://www.paulgraham.com/icad.html?viewfullsite=1)
+ * [A Senior Engineer's CheckList](https://littleblah.com/post/2019-09-01-senior-engineer-checklist/)
+
+**Programming Languages**
+
+ * [No, dynamic type systems are not inherently more open](https://lexi-lambda.github.io/blog/2020/01/19/no-dynamic-type-systems-are-not-inherently-more-open/)
+ * [Parse, don’t validate](https://lexi-lambda.github.io/blog/2019/11/05/parse-don-t-validate/)
+
+
+# Books :books:
+
+**Distributed Systems**
+
+ * [Designing Data-Intensive Applications: The Big Ideas Behind Reliable, Scalable, and Maintainable Systems](https://www.amazon.com/Designing-Data-Intensive-Applications-Reliable-Maintainable/dp/1449373321/)
+ * [Database Internals: A Deep Dive into How Distributed Data Systems Work](https://www.amazon.com/Database-Internals-Deep-Distributed-Systems-dp-1492040347/dp/1492040347)
