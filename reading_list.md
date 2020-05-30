@@ -53,6 +53,7 @@ title: Reading List
  * [Mutexes Are Faster Than Spinlocks](https://matklad.github.io/2020/01/04/mutexes-are-faster-than-spinlocks.html)
  * [Measuring Mutexes, Spinlocks and how Bad the Linux Scheduler Really is](https://probablydance.com/2019/12/30/measuring-mutexes-spinlocks-and-how-bad-the-linux-scheduler-really-is/)
  * [I'm not feeling the async pressure](https://lucumr.pocoo.org/2020/1/1/async-pressure/)
+ * [Bounded Concurrent Time-Stamp Systems Are Constructible](https://groups.csail.mit.edu/tds/papers/Shavit/TM-393.pdf)
 
 **Distributed Systems**
 
@@ -69,6 +70,7 @@ title: Reading List
  * [Transactional Messaging in Kafka](https://www.confluent.io/blog/transactions-apache-kafka/)
  * [The Case Against Queues](http://widgetsandshit.com/teddziuba/2011/02/the-case-against-queues.html)
  * [DBMS Musings](http://dbmsmusings.blogspot.com/2019/08/an-explanation-of-difference-between.html)
+ * [Gray Failures](https://www.the-paper-trail.org/post/2020-04-19-gray-failures/) :heavy_check_mark:
 
 **Linux**
 
