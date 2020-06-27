@@ -23,6 +23,7 @@ title: Reading List
  * [All Aboard the Databus!](http://www.socc2012.org/s18-das.pdf)
  * [Unreliable Failure Detectors for Reliable Distributed Systems](http://courses.csail.mit.edu/6.852/08/papers/CT96-JACM.pdf)
  * [Life beyond Distributed Transactions: an Apostate’s Opinion](http://adrianmarriott.net/logosroot/papers/LifeBeyondTxns.pdf)
+ * [Amazon Aurora: Design Considerations for High Throughput Cloud-Native Relational Databases](https://awsmedia.awsstatic-china.com/blog/2017/aurora-design-considerations-paper.pdf)
 
 **Hardware**
 
@@ -71,6 +72,7 @@ title: Reading List
  * [The Case Against Queues](http://widgetsandshit.com/teddziuba/2011/02/the-case-against-queues.html)
  * [DBMS Musings](http://dbmsmusings.blogspot.com/2019/08/an-explanation-of-difference-between.html)
  * [Gray Failures](https://www.the-paper-trail.org/post/2020-04-19-gray-failures/) :heavy_check_mark:
+ * [Network Load Balancing with Maglev](https://www.the-paper-trail.org/post/2020-06-23-maglev/)
 
 **Linux**
 
