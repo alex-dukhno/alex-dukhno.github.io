@@ -4,7 +4,7 @@ title: This June in my Database project written in Rust
 tags: [Rust, DBMS]
 ---
 
-It has been a month since I open my database project up. A couple of people wrote to me that it would be interesting to read about the project's progress I decided to write once a month some kind of report. It would be useful for me too, to recap what happened during a month. Let's get started :smile:
+It has been a month since I open my [database project](https://github.com/alex-dukhno/database) up. A couple of people wrote to me that it would be interesting to read about the project's progress, so I decided to write once a month an article that describes what was done, what is in progress and what is the near future plans. It would be useful for me too, to recap what happened during a month. Let's get started :smile:
 
 ### Setting up integration tests
 
