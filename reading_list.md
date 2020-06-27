@@ -72,7 +72,6 @@ title: Reading List
  * [Noria: dynamic, partially-stateful data-flow for high-performance web applications](https://www.usenix.org/system/files/osdi18-gjengset.pdf)
  * [Noria A New Take on Fast Web Application Backends](https://jon.thesquareplanet.com/papers/login-spring19-noria.pdf)
 
-
 **Hardware**
 
  * [What Every Programmer Should Know About Memory](https://people.freebsd.org/~lstewart/articles/cpumemory.pdf) :heavy_check_mark:
