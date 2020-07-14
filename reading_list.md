@@ -29,7 +29,7 @@ title: Reading List
  * [Unreliable Failure Detectors for Reliable Distributed Systems](http://courses.csail.mit.edu/6.852/08/papers/CT96-JACM.pdf)
  * [Life beyond Distributed Transactions: an Apostate’s Opinion](http://adrianmarriott.net/logosroot/papers/LifeBeyondTxns.pdf)
  * [Amazon Aurora: Design Considerations for High Throughput Cloud-Native Relational Databases](https://awsmedia.awsstatic-china.com/blog/2017/aurora-design-considerations-paper.pdf) :heavy_check_mark:
- * [Amazon Aurora: On Avoiding Distributed Consensus for I/Os, Commits, and Membership Changes](https://dl.acm.org/doi/abs/10.1145/3183713.3196937)
+ * [Amazon Aurora: On Avoiding Distributed Consensus for I/Os, Commits, and Membership Changes](https://dl.acm.org/doi/abs/10.1145/3183713.3196937) :heavy_check_mark:
  * [G. Graefe. Instant recovery for data center savings.](https://dl.acm.org/doi/10.1145/2814710.2814716)
  * [Y. Saito and M. Shapiro. Optimistic replication](https://dl.acm.org/doi/abs/10.1145/1057977.1057980)
  * [MapReduce: a flexible data processing tool](https://dl.acm.org/doi/abs/10.1145/1629175.1629198)
@@ -71,6 +71,10 @@ title: Reading List
  * [SLOG: Serializable, Low-latency, Geo-replicated Transactions](http://www.cs.umd.edu/~abadi/papers/1154-Abadi.pdf)
  * [Noria: dynamic, partially-stateful data-flow for high-performance web applications](https://www.usenix.org/system/files/osdi18-gjengset.pdf)
  * [Noria A New Take on Fast Web Application Backends](https://jon.thesquareplanet.com/papers/login-spring19-noria.pdf)
+ * [Calvin: Fast Distributed Transactions for Partitioned Database Systems](http://cs.yale.edu/homes/thomson/publications/calvin-sigmod12.pdf)
+ * [Weighted Voting for Replicated Data](http://pages.cs.wisc.edu/~remzi/Classes/739/Fall2015/Papers/gifford79.pdf)
+ * [Capturing global transactions from multiple recovery log files in a partitioned database system](http://www.vldb.org/conf/2003/papers/S29P03.pdf)
+ * [SSS: Scalable Key-Value Store with External Consistent and Abort-free Read-only Transactions](https://arxiv.org/abs/1901.03772)
 
 **Hardware**
 
@@ -83,13 +87,19 @@ title: Reading List
  * [Interrupt Handling in Linux](https://opus4.kobv.de/opus4-fau/frontdoor/deliver/index/docId/6722/file/report.pdf)
  * [New Scheduling Approaches for Linux OS](https://webthesis.biblio.polito.it/13108/1/tesi.pdf)
  * [Unikernels: The Next Stage of Linux’s Dominance](https://dl.acm.org/doi/pdf/10.1145/3317550.3321445)
- * []
 
 **Network Protocols**
 
  * [Is it Still Possible to Extend TCP?](https://conferences.sigcomm.org/imc/2011/docs/p181.pdf)
  * [Fitting Square Pegs Through Round Pipes Unordered Delivery Wire-Compatible with TCP and TLS](https://www.researchgate.net/publication/50235622_Fitting_Square_Pegs_Through_Round_Pipes_Unordered_Delivery_Wire-Compatible_with_TCP_and_TLS)
  * [The QUIC Transport Protocol: Design and Internet-Scale Deployment](https://static.googleusercontent.com/media/research.google.com/en//pubs/archive/46403.pdf)
+
+**Testing**
+
+ * [Experiences with QuickCheck: Testing the Hard Stuff and Staying Sane](https://www.cs.tufts.edu/~nr/cs257/archive/john-hughes/quviq-testing.pdf)
+ * [Finding Race Conditions in Erlang with QuickCheck and PULSE](http://www.cse.chalmers.se/~nicsma/papers/finding-race-conditions.pdf)
+ * [Simple Testing Can Prevent Most Critical Failures: An Analysis of Production Failures in Distributed Data-Intensive Systems](https://www.usenix.org/system/files/conference/osdi14/osdi14-paper-yuan.pdf)
+ * [All File Systems Are Not Created Equal: On the Complexity of Crafting Crash-Consistent Applications](https://www.usenix.org/system/files/conference/osdi14/osdi14-paper-pillai.pdf)
 
 # Blogs
 
