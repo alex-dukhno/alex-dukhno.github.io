@@ -59,6 +59,10 @@ One more big change to the overall design  the database was landed to mainline t
 
 As I notice experiments generate many ideas of where and how the project could grow and reach certain milestones I decided to experiment with its distribution. As the developers are the main group of users/experimenters in the databases field and most of them should have installed docker on their working machine I went ahead with docker image distribution. If you are interested to play around with what database can do now you can follow [the documentation](https://github.com/alex-dukhno/database/tree/master/docs).
 
+### Discord Server
+
+Last but not least, [discord server](https://discord.gg/PUcTcfU) has been created to discuss issues, ideas, and current development areas. You are more than welcome to come and join us.
+
 
 There were a lot of things that went by this month, some of them I missed or forget about. However, at the end of this article, I'd like to share some, I hope the near future, plans on what we will be working in the following weeks or months.
 
