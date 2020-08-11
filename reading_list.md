@@ -14,12 +14,12 @@ title: Reading List
  * :red_circle: [Modern B-Tree Techniques](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.219.7269&rep=rep1&type=pdf)
  * [The Log-Structured Merge-Tree (LSM-Tree)](http://www.cs.umb.edu/~poneil/lsmtree.pdf)
  * [Fast and Lock-Free Concurrent Priority Queues for Multi-Thread Systems](http://www.non-blocking.com/download/SunT03_PQueue_TR.pdf)
- * :orange_circle: [The Bw-Tree: A B-tree for New Hardware Platforms](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/bw-tree-icde2013-final.pdf)
+ * 🟠 [The Bw-Tree: A B-tree for New Hardware Platforms](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/bw-tree-icde2013-final.pdf)
 
 ### Distributed Systems and Databases
 
  * [In Search of an Understandable Consensus Algorithm (Extended Version)](https://raft.github.io/raft.pdf) :heavy_check_mark:
- * :orange_circle: [ARC: Analysis of Raft Consensus](https://www.cl.cam.ac.uk/techreports/UCAM-CL-TR-857.pdf)
+ * 🟠 [ARC: Analysis of Raft Consensus](https://www.cl.cam.ac.uk/techreports/UCAM-CL-TR-857.pdf)
  * [Viewstamped Replication Revisited](http://pmg.csail.mit.edu/papers/vr-revisited.pdf) :heavy_check_mark:
  * [Providing High Availability Using Lazy Replication](https://www.cs.princeton.edu/courses/archive/fall19/cos418/papers/lazy.pdf) :open_book:
  * [Raft Refloated: Do We Have Consensus?](https://www.cl.cam.ac.uk/~ms705/pub/papers/2015-osr-raft.pdf)
@@ -88,7 +88,7 @@ title: Reading List
 
 ### Hardware
 
- * :green_circle: [What Every Programmer Should Know About Memory](https://people.freebsd.org/~lstewart/articles/cpumemory.pdf) :heavy_check_mark:
+ * 🟢 [What Every Programmer Should Know About Memory](https://people.freebsd.org/~lstewart/articles/cpumemory.pdf) :heavy_check_mark:
  * [Meltdown: Reading Kernel Memory from User Space](https://www.usenix.org/system/files/conference/usenixsecurity18/sec18-lipp.pdf) :heavy_check_mark:
  * [Spectre Attacks: Exploiting Speculative Execution](https://spectreattack.com/spectre.pdf) :heavy_check_mark:
 
@@ -187,17 +187,17 @@ title: Reading List
  * :red_circle: [A Quorum-Based Commit Protocol](https://ecommons.cornell.edu/bitstream/handle/1813/6323/82-483.pdf?sequence=1&isAllowed=y)
  * :red_circle: [Consistent and Durable Data Structures for Non-Volatile Byte-Addressable Memory](https://shivaram.org/publications/nvm-fast11.pdf)
  * 🟠 [The Many Faces of Consistency](https://dl.acm.org/doi/10.1145/1125451.1125751)
- * :orange_circle: [Understanding Non-Blocking Atomic Commitment](https://www.semanticscholar.org/paper/CM-Understanding-Non-Blocking-Atomic-Commitment-Babaoglu-Toueg/0ef76a5c0f519f8bc9ba11cca385356dccabb2ae)
- * :orange_circle: [Cache-Oblivious B-Trees](http://supertech.csail.mit.edu/papers/BenderFaKu06.pdf)
- * :orange_circle: [Cache-Oblivious Algorithms and Data Structures](http://erikdemaine.org/papers/BRICS2002/paper.pdf)
- * :orange_circle: [Write-Optimized B-Trees](http://www.cs.toronto.edu/vldb04/protected/eProceedings/contents/pdf/RS18P2.PDF)
- * :orange_circle: [Architecture of a Database System](https://www.nowpublishers.com/article/Details/DBS-002)
- * :orange_circle: [Efficient locking for concurrent operations on B-trees](https://doi.org/10.1145/319628.319663)
- * :orange_circle: [Algorithms for scalable synchronization on shared-memory multiprocessors](https://doi.org/10.1145/103727.103729)
- * :orange_circle: [Design Principles for Scaling Multi-core OLTP Under High Contention](https://doi.org/10.1145/2882903.2882958)
- * :orange_circle: [Implementing a Better Cache Replacement Algorithm in Apache Derby Progress Report](https://pdfs.semanticscholar.org/220b/2fe62f13478f1ec75cf17ad085874689c604.pdf)
- * :orange_circle: [A majority consensus approach to concurrency control for multiple copy databases](https://doi.org/10.1145/320071.320076)
- * :orange_circle: [An Efficient Design and Implementation of LSM-tree based Key-Value Store on Open-Channel SSD](https://doi.org/10.1145/2592798.2592804)
+ * 🟠 [Understanding Non-Blocking Atomic Commitment](https://www.semanticscholar.org/paper/CM-Understanding-Non-Blocking-Atomic-Commitment-Babaoglu-Toueg/0ef76a5c0f519f8bc9ba11cca385356dccabb2ae)
+ * 🟠 [Cache-Oblivious B-Trees](http://supertech.csail.mit.edu/papers/BenderFaKu06.pdf)
+ * 🟠 [Cache-Oblivious Algorithms and Data Structures](http://erikdemaine.org/papers/BRICS2002/paper.pdf)
+ * 🟠 [Write-Optimized B-Trees](http://www.cs.toronto.edu/vldb04/protected/eProceedings/contents/pdf/RS18P2.PDF)
+ * 🟠 [Architecture of a Database System](https://www.nowpublishers.com/article/Details/DBS-002)
+ * 🟠 [Efficient locking for concurrent operations on B-trees](https://doi.org/10.1145/319628.319663)
+ * 🟠 [Algorithms for scalable synchronization on shared-memory multiprocessors](https://doi.org/10.1145/103727.103729)
+ * 🟠 [Design Principles for Scaling Multi-core OLTP Under High Contention](https://doi.org/10.1145/2882903.2882958)
+ * 🟠 [Implementing a Better Cache Replacement Algorithm in Apache Derby Progress Report](https://pdfs.semanticscholar.org/220b/2fe62f13478f1ec75cf17ad085874689c604.pdf)
+ * 🟠 [A majority consensus approach to concurrency control for multiple copy databases](https://doi.org/10.1145/320071.320076)
+ * 🟠 [An Efficient Design and Implementation of LSM-tree based Key-Value Store on Open-Channel SSD](https://doi.org/10.1145/2592798.2592804)
  * :large_blue_circle: [Scalable Atomic Visibility with RAMP Transactions](https://dl.acm.org/doi/10.1145/2909870)
  * :large_blue_circle: [The promise, and limitations, of gossip protocols](https://research.cs.cornell.edu/projects/Quicksilver/public_pdfs/2007PromiseAndLimitations.pdf)
  * :large_blue_circle: [Consistent hashing and random trees: distributed caching protocols for relieving hot spots on the World Wide Web](https://www.akamai.com/us/en/multimedia/documents/technical-publication/consistent-hashing-and-random-trees-distributed-caching-protocols-for-relieving-hot-spots-on-the-world-wide-web-technical-publication.pdf)
@@ -206,24 +206,24 @@ title: Reading List
  * :large_blue_circle: [Memory Ordering in Modern Microprocessors, Part I](https://www.linuxjournal.com/article/8211)
  * :large_blue_circle: [Memory Ordering in Modern Microprocessors, Part II](https://www.linuxjournal.com/article/8212)
  * :large_blue_circle: [A Digital Signature Based on a Conventional Encryption Function](https://dl.acm.org/citation.cfm?id=704751)
- * :green_circle: [LightNVM: the Linux open-channel SSD subsystem](https://www.usenix.org/system/files/conference/fast17/fast17-bjorling.pdf)
- * :green_circle: [Paxos made live: an engineering perspective](https://dl.acm.org/doi/abs/10.1145/1281100.1281103)
- * :green_circle: [Spanner: Google’s Globally-Distributed Database](https://www.usenix.org/system/files/conference/osdi12/osdi12-final-16.pdf)
- * :green_circle: [Memory Consistency Models of Modern CPUs](https://es.cs.uni-kl.de/publications/datarsg/Geor16.pdf)
- * :green_circle: [Flexible Paxos: Quorum intersection revisited](https://arxiv.org/abs/1608.06696)
- * :green_circle: [Redesigning LSMs for Nonvolatile Memory with NoveLSM](https://www.usenix.org/system/files/conference/atc18/atc18-kannan.pdf)
- * :green_circle: [Generalized Consensus and Paxos](https://www.microsoft.com/en-us/research/publication/generalized-consensus-and-paxos/)
- * :green_circle: [A Proof of Correctness for Egalitarian Paxos](https://www.pdl.cmu.edu/PDL-FTP/associated/CMU-PDL-13-111.pdf)
- * :green_circle: [Replicated State Machines without logs](https://arxiv.org/abs/1802.07000)
- * :green_circle: [Consistency in Non-Transactional Distributed Storage Systems](https://doi.org/0.1145/2926965)
- * :green_circle: [Don’t stack your Log on my Log](https://www.usenix.org/system/files/conference/inflow14/inflow14-yang.pdf)
+ * 🟢 [LightNVM: the Linux open-channel SSD subsystem](https://www.usenix.org/system/files/conference/fast17/fast17-bjorling.pdf)
+ * 🟢 [Paxos made live: an engineering perspective](https://dl.acm.org/doi/abs/10.1145/1281100.1281103)
+ * 🟢 [Spanner: Google’s Globally-Distributed Database](https://www.usenix.org/system/files/conference/osdi12/osdi12-final-16.pdf)
+ * 🟢 [Memory Consistency Models of Modern CPUs](https://es.cs.uni-kl.de/publications/datarsg/Geor16.pdf)
+ * 🟢 [Flexible Paxos: Quorum intersection revisited](https://arxiv.org/abs/1608.06696)
+ * 🟢 [Redesigning LSMs for Nonvolatile Memory with NoveLSM](https://www.usenix.org/system/files/conference/atc18/atc18-kannan.pdf)
+ * 🟢 [Generalized Consensus and Paxos](https://www.microsoft.com/en-us/research/publication/generalized-consensus-and-paxos/)
+ * 🟢 [A Proof of Correctness for Egalitarian Paxos](https://www.pdl.cmu.edu/PDL-FTP/associated/CMU-PDL-13-111.pdf)
+ * 🟢 [Replicated State Machines without logs](https://arxiv.org/abs/1802.07000)
+ * 🟢 [Consistency in Non-Transactional Distributed Storage Systems](https://doi.org/0.1145/2926965)
+ * 🟢 [Don’t stack your Log on my Log](https://www.usenix.org/system/files/conference/inflow14/inflow14-yang.pdf)
 
 ##### Blogs
  * :red_circle: [Distributed consistency at scale: Spanner vs. Calvin.](https://fauna.com/blog/distributed-consistency-at-scale-spanner-vs-calvin)
- * :orange_circle: [Linearizability versus Serializability](https://www.bailis.org/blog/linearizability-versus-serializability)
+ * 🟠 [Linearizability versus Serializability](https://www.bailis.org/blog/linearizability-versus-serializability)
  * :large_blue_circle: [Best of both worlds: Raft’s joint consensus + Single Decree Paxos](http://rystsov.info/2016/01/05/raft-paxos.html)
- * :green_circle: [Sequential Consistency](https://jepsen.io/consistency/models/sequential)
- * :green_circle: [Strong consistency models](https://aphyr.com/posts/313-strong-consistency-models)
+ * 🟢 [Sequential Consistency](https://jepsen.io/consistency/models/sequential)
+ * 🟢 [Strong consistency models](https://aphyr.com/posts/313-strong-consistency-models)
 
 ##### Books
  * :red_circle: [Database System Concepts](https://www.amazon.com/Database-Concepts-Abraham-Silberschatz-Professor-dp-0078022150/dp/0078022150) :open_book:
@@ -232,7 +232,7 @@ title: Reading List
  * :red_circle: [Understanding the Linux Kernel. Third Edition](https://www.amazon.com/Understanding-Linux-Kernel-Third-Daniel/dp/0596005652)
  * :red_circle: [Fundamentals of Database Systems](https://www.amazon.com/Fundamentals-Database-Systems-Navathe-Elmasri-dp-1292097612/dp/1292097612)
  * :red_circle: [Database Management Systems](https://www.amazon.com/Database-Management-Systems-Raghu-Ramakrishnan/dp/0072465638)
- * :orange_circle: [Introduction to Reliable and Secure Distributed Programming](https://www.amazon.com/Introduction-Reliable-Secure-Distributed-Programming/dp/3642152597)
- * :orange_circle: [Distributed Operating Systems: Concepts and Design](https://www.amazon.com/Distributed-Operating-Systems-Concepts-Design/dp/0780311191)
- * :orange_circle: [Modern Operating Systems](https://www.amazon.com/Modern-Operating-Systems-Andrew-Tanenbaum/dp/013359162X)
- * :orange_circle: [Distributed Systems: Principles and Paradigms](https://www.amazon.com/Distributed-Systems-Principles-Andrew-Tanenbaum/dp/153028175X)
+ * 🟠 [Introduction to Reliable and Secure Distributed Programming](https://www.amazon.com/Introduction-Reliable-Secure-Distributed-Programming/dp/3642152597)
+ * 🟠 [Distributed Operating Systems: Concepts and Design](https://www.amazon.com/Distributed-Operating-Systems-Concepts-Design/dp/0780311191)
+ * 🟠 [Modern Operating Systems](https://www.amazon.com/Modern-Operating-Systems-Andrew-Tanenbaum/dp/013359162X)
+ * 🟠 [Distributed Systems: Principles and Paradigms](https://www.amazon.com/Distributed-Systems-Principles-Andrew-Tanenbaum/dp/153028175X)
