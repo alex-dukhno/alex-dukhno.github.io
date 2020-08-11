@@ -186,7 +186,7 @@ title: Reading List
  * :red_circle: [ARIES: a transaction recovery method supporting fine-granularity locking and partial rollbacks using write-ahead logging](https://doi.org/10.1145/128765.128770)
  * :red_circle: [A Quorum-Based Commit Protocol](https://ecommons.cornell.edu/bitstream/handle/1813/6323/82-483.pdf?sequence=1&isAllowed=y)
  * :red_circle: [Consistent and Durable Data Structures for Non-Volatile Byte-Addressable Memory](https://shivaram.org/publications/nvm-fast11.pdf)
- * :orange_circle: [The Many Faces of Consistency](https://dl.acm.org/doi/10.1145/1125451.1125751)
+ * 🟠 [The Many Faces of Consistency](https://dl.acm.org/doi/10.1145/1125451.1125751)
  * :orange_circle: [Understanding Non-Blocking Atomic Commitment](https://www.semanticscholar.org/paper/CM-Understanding-Non-Blocking-Atomic-Commitment-Babaoglu-Toueg/0ef76a5c0f519f8bc9ba11cca385356dccabb2ae)
  * :orange_circle: [Cache-Oblivious B-Trees](http://supertech.csail.mit.edu/papers/BenderFaKu06.pdf)
  * :orange_circle: [Cache-Oblivious Algorithms and Data Structures](http://erikdemaine.org/papers/BRICS2002/paper.pdf)
