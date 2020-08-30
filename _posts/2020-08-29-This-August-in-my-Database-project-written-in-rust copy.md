@@ -4,7 +4,7 @@ title: This August in my Database project written in Rust
 tags: [Rust, DBMS]
 ---
 
-This month besides adventures like moving into another apartment and having a release on my daily job, I have got time to work on the project, listen to [Andy Pavlo's intro to Database System course](https://www.youtube.com/watch?v=oeYBdghaIjc&list=PLSE8ODhjZXjbohkNBWQs_otTrBTrjyohi), and think through ideas that floated in my mind. I will start with what happened to [the database project](https://github.com/alex-dukhno/database) in the code/development perspective and then dump my ideas on what is next.
+This month besides adventures like moving into another apartment and having a release on my daily job, I have got time to work on the project, listen to [Andy Pavlo's intro to Database System course](https://www.youtube.com/watch?v=oeYBdghaIjc&list=PLSE8ODhjZXjbohkNBWQs_otTrBTrjyohi), and think through ideas that floated in my mind. I will start with what happened to [the database project](https://github.com/alex-dukhno/database) in the code/development perspective and then write my ideas on what is the future of the project.
 
 ### PostgreSQL Protocol Extended Query
 
@@ -30,7 +30,6 @@ More information about project development on [GitHub](https://github.com/alex-d
 
 ## Thoughts on the Project future
 
-And now I would like to write about my thoughts on where this project is going. Since the beginning of the project, I was thinking of how to make it bigger than just a pet project that I am building in my garage. I started to notice how happier I am when I saw the number of stars, forks and, watchers increasing. How differently I am looking at the project when people contributing code in it. This month was full of thoughts on how I can establish a commercial open source company. Working through that I found out that I am missing: a team, a prototype, and a product/company name. My feeling is that these three things, in combination, will unlock what goal, mission my future company, is going to achieve - in simple words produce a solid business plan of how to get scalable, high performant, NewSQL database written in Rust.
-Building a prototype is a technical issue that software developers know how to fix, coming up with a name is a little bit harder, but manageable too. I still don't know how to gather a team. I feel that I need to write it in a separate post.
+Since the beginning of the project, I was thinking of how to make it bigger than just a pet project that I am building in my garage. I started to notice how happier I am when I saw the number of stars, forks, and watchers increasing. How differently I am looking at the project when people contributing code in it. This month was full of thoughts on how I can establish a commercial open source company. Working through that I found out that I am missing a team, a prototype, and a product/company name. In the next few months, I am going to work on filling the missing parts. I will start working on establishing a goal and a mission of my future company - in other words, I will spend some time on how to transform a garage idea into a scalable, high performant, NewSQL database written in Rust.
 
 Thanks for the reading.
