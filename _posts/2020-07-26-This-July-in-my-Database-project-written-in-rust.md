@@ -24,7 +24,7 @@ Also, there is a plan to add other operations supported by `PostgreSQL` like squ
 
 ### Query Preprocessor
 
-The idea is that the SQL engine has to first analyze the SQL abstract syntax tree and be sure that a query could be executed. After that SQL engine goes through runtime checks like if schema, table(s), and column(s) exist in storage and then perform read, write or return an error(s) to a client. [Andrew Bregger](https://github.com/AndrewBregger) did [a prototype](https://github.com/alex-dukhno/database/pull/183) and it is still work in progress to land it into mainline. Currently, we have migrated `(CREATE|DROP) SCHEMA`, `(CREATE|DROP) TABLE`. I postpone the migration of `INSERT` queries due to changes to on-disk representation which influenced all other types of queries, and also I didn't have a clear vision of how to handle already implemented expression evaluation inside queries. Hopefully, new on-disk representation was landed in the mainline and unblocked migration of other queries to be preprocessed.
+The idea is that the SQL engine has to first analyze the SQL abstract syntax tree and be sure that a query could be executed. After that SQL engine goes through runtime checks like if schema, table(s), and column(s) exist in storage and then perform read, write or return an error(s) to a client. [Andrew Bregger](https://github.com/AndrewBregger) did [a prototype](https://github.com/alex-dukhno/isomorphicdb/pull/183) and it is still work in progress to land it into mainline. Currently, we have migrated `(CREATE|DROP) SCHEMA`, `(CREATE|DROP) TABLE`. I postpone the migration of `INSERT` queries due to changes to on-disk representation which influenced all other types of queries, and also I didn't have a clear vision of how to handle already implemented expression evaluation inside queries. Hopefully, new on-disk representation was landed in the mainline and unblocked migration of other queries to be preprocessed.
 
 ### On-Disk Representation
 
@@ -57,7 +57,7 @@ One more big change to the overall design  the database was landed to mainline t
 
 ### Releasing docker image
 
-As I notice experiments generate many ideas of where and how the project could grow and reach certain milestones I decided to experiment with its distribution. As the developers are the main group of users/experimenters in the databases field and most of them should have installed docker on their working machine I went ahead with docker image distribution. If you are interested to play around with what database can do now you can follow [the documentation](https://github.com/alex-dukhno/database/tree/master/docs).
+As I notice experiments generate many ideas of where and how the project could grow and reach certain milestones I decided to experiment with its distribution. As the developers are the main group of users/experimenters in the databases field and most of them should have installed docker on their working machine I went ahead with docker image distribution. If you are interested to play around with what database can do now you can follow [the documentation](https://github.com/alex-dukhno/isomorphicdb/tree/master/docs).
 
 ### Discord Server
 

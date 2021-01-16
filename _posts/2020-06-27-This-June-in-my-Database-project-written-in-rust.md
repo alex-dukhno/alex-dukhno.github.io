@@ -4,7 +4,7 @@ title: This June in my Database project written in Rust
 tags: [Rust, DBMS]
 ---
 
-It has been a month since I open my [database project](https://github.com/alex-dukhno/database) up. A couple of people wrote to me that it would be interesting to read about the project's progress, so I decided to write once a month an article that describes what was done, what is in progress and what is the near future plans. It would be useful for me too, to recap what happened during a month. Let's get started :smile:
+It has been a month since I open my [database project](https://github.com/alex-dukhno/isomorphicdb) up. A couple of people wrote to me that it would be interesting to read about the project's progress, so I decided to write once a month an article that describes what was done, what is in progress and what is the near future plans. It would be useful for me too, to recap what happened during a month. Let's get started :smile:
 
 ### Setting up integration tests
 
@@ -29,7 +29,7 @@ I don't know about others but at some point I realized that my project is "big" 
 
 ### First contributor
 
-Hi [Steven](https://github.com/silathdiir) :wave: :smile:. Steven has contributed code to [handle the situation when a user is trying to select columns that are not present in a table](https://github.com/alex-dukhno/database/pull/74) and [handle the update of a specified column and a nonexistent column](https://github.com/alex-dukhno/database/pull/100). But beyond the code, our communication helps me realize how much should I describe `good first issue` and `help wanted` issues that that contributors could easily pick up and start working on code. Issues descriptions are "Hi, welcome to the project" messages. Thanks, Steven for that realization.
+Hi [Steven](https://github.com/silathdiir) :wave: :smile:. Steven has contributed code to [handle the situation when a user is trying to select columns that are not present in a table](https://github.com/alex-dukhno/isomorphicdb/pull/74) and [handle the update of a specified column and a nonexistent column](https://github.com/alex-dukhno/isomorphicdb/pull/100). But beyond the code, our communication helps me realize how much should I describe `good first issue` and `help wanted` issues that that contributors could easily pick up and start working on code. Issues descriptions are "Hi, welcome to the project" messages. Thanks, Steven for that realization.
 
 ### SQL types
 

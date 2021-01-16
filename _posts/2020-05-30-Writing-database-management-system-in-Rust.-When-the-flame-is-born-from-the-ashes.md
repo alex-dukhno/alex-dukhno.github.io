@@ -18,4 +18,4 @@ The dream started growing again after a short chat with [Alex Petrov](https://tw
  * Compiling `SQL` queries into binary using `LLVM`,
  * Go distributed - implement effective conflict resolution algorithms, replication, CRDT.
 
-There is a bunch of work that I couldn't possibly do alone and fun that I would love to share with database community enthusiasts. Today, I am making my `GitHub` repo public with the initial work that I’ve done. Here it is: [alex-dukhno/database](https://github.com/alex-dukhno/database). If you are interested in contributing please don’t hesitate and reach me out.
+There is a bunch of work that I couldn't possibly do alone and fun that I would love to share with database community enthusiasts. Today, I am making my `GitHub` repo public with the initial work that I’ve done. Here it is: [alex-dukhno/database](https://github.com/alex-dukhno/isomorphicdb). If you are interested in contributing please don’t hesitate and reach me out.
