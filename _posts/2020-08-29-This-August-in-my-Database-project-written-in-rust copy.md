@@ -4,7 +4,7 @@ title: This August in my Database project written in Rust
 tags: [Rust, DBMS]
 ---
 
-This month besides adventures like moving into another apartment and having a release on my daily job, I have got time to work on the project, listen to [Andy Pavlo's intro to Database System course](https://www.youtube.com/watch?v=oeYBdghaIjc&list=PLSE8ODhjZXjbohkNBWQs_otTrBTrjyohi), and think through ideas that floated in my mind. I will start with what happened to [the database project](https://github.com/alex-dukhno/database) in the code/development perspective and then write my ideas on what is the future of the project.
+This month besides adventures like moving into another apartment and having a release on my daily job, I have got time to work on the project, listen to [Andy Pavlo's intro to Database System course](https://www.youtube.com/watch?v=oeYBdghaIjc&list=PLSE8ODhjZXjbohkNBWQs_otTrBTrjyohi), and think through ideas that floated in my mind. I will start with what happened to [the database project](https://github.com/alex-dukhno/isomorphicdb) in the code/development perspective and then write my ideas on what is the future of the project.
 
 ### PostgreSQL Protocol Extended Query
 
@@ -12,7 +12,7 @@ This month besides adventures like moving into another apartment and having a re
 
 ### Dynamic expression evaluation
 
-Last month, we introduced the evaluation of simple expressions. The database can add, subtract numbers or concatenate strings. This month [Andrew](https://github.com/AndrewBregger) started to work on extending capabilities to evaluate dynamic expressions that could contain column names. He submitted [a PR for updated queries](https://github.com/alex-dukhno/database/pull/258) that I hope we merge soon. I think this work lays out a direction to evaluating predicates in `where` clause and executing more complex `select` queries.
+Last month, we introduced the evaluation of simple expressions. The database can add, subtract numbers or concatenate strings. This month [Andrew](https://github.com/AndrewBregger) started to work on extending capabilities to evaluate dynamic expressions that could contain column names. He submitted [a PR for updated queries](https://github.com/alex-dukhno/isomorphicdb/pull/258) that I hope we merge soon. I think this work lays out a direction to evaluating predicates in `where` clause and executing more complex `select` queries.
 
 ### Definition Schema
 
@@ -26,7 +26,7 @@ Working through materials of [Intro to Database Systems course](https://15445.co
 
 Finally, the last improvement to the storage system in the database was that it does not use a temp folder anymore to store data. `CatalogManager` and `DataDefinition` struct were developed with the possibility to save data on-disk. By default, the database will start in in-memory mode, it simplifies `SQL engine` testing a lot, but if you pass the `PERSISTENCE` env variable to the starting command the database will use a disk.
 
-More information about project development on [GitHub](https://github.com/alex-dukhno/database)
+More information about project development on [GitHub](https://github.com/alex-dukhno/isomorphicdb)
 
 ## Thoughts on the Project future
 
